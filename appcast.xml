@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>TalkRemind</title>
+        <link>https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/appcast.xml</link>
+        <description>Update feed for TalkRemind.</description>
+        <language>en</language>
+        <item>
+            <title>Version 0.1.0</title>
+            <pubDate>Tue, 15 Sep 2026 15:43:12 +0200</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description>
+                <![CDATA[
+                  <h3>0.1.0</h3>
+                  <ul>
+                    <li>First public build: menu-bar nudge to dictate instead of type, four nudge styles, adaptive sensitivity, weekly summary, and a 14-day free trial.</li>
+                    <li>Localized into German, English, French, Spanish, Italian, and Portuguese, following the system language by default.</li>
+                    <li>Automatic updates via Sparkle and license activation via Lemon Squeezy.</li>
+                  </ul>
+                ]]>
+            </description>
+            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.1.0.zip" length="5221713" type="application/octet-stream" sparkle:edSignature="XRd7qdD+hX9Ls36ZStZX3aUcW4YNuY2uPMxauN9dfLwzsjTmIvzu9C8YuiTvhoR647/nP4uFPCJzLFuJDTpdBQ=="/>
+        </item>
+    </channel>
+</rss>
