@@ -146,7 +146,10 @@
   /* ---------- Supported apps ---------- */
   .app-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); max-width: 840px; margin: 0 auto; }
   @media (max-width: 760px) { .app-grid { grid-template-columns: repeat(2, 1fr); } }
-  .app-chip { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 15px 14px; font-size: 14.5px; font-weight: 600; text-align: center; }
+  .app-chip { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 13px 16px; font-size: 14.5px; font-weight: 600; display: flex; align-items: center; gap: 11px; }
+  .app-chip img, .app-chip .app-glyph { width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0; object-fit: cover; }
+  .app-chip .app-glyph { background: var(--band); display: flex; align-items: center; justify-content: center; color: var(--ink); }
+  .app-chip .app-glyph svg { width: 15px; height: 15px; }
   .app-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 30px; max-width: 620px; margin-left: auto; margin-right: auto; }
 
   /* ---------- How it works ---------- */
@@ -241,7 +244,8 @@
   <img class="icon" src="assets/app-icon.png" alt="TalkRemind app icon">
   <div class="eyebrow">macOS 14+</div>
   <h1>
-    You bought a dictation app. But you're still typing?<br>
+    You bought a dictation app.<br>
+    But you're still typing?<br>
     <span class="punch">
       Not anymore.
       <svg class="punch-line" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true">
@@ -292,18 +296,18 @@
       <p>TalkRemind doesn't transcribe anything. It recognises these apps and puts <em>their</em> hotkey in the nudge.</p>
     </div>
     <div class="app-grid">
-      <div class="app-chip">Wispr Flow</div>
-      <div class="app-chip">superwhisper</div>
-      <div class="app-chip">Aqua Voice</div>
-      <div class="app-chip">VoiceInk</div>
-      <div class="app-chip">MacWhisper</div>
-      <div class="app-chip">Apple Dictation</div>
-      <div class="app-chip">Lispr</div>
-      <div class="app-chip">Spokenly</div>
-      <div class="app-chip">Voibe</div>
-      <div class="app-chip">FluidVoice</div>
-      <div class="app-chip">Handy</div>
-      <div class="app-chip">Hex</div>
+      <div class="app-chip"><img src="assets/apps/wisprflow.png" alt="" loading="lazy">Wispr Flow</div>
+      <div class="app-chip"><img src="assets/apps/superwhisper.png" alt="" loading="lazy">superwhisper</div>
+      <div class="app-chip"><img src="assets/apps/aquavoice.png" alt="" loading="lazy">Aqua Voice</div>
+      <div class="app-chip"><img src="assets/apps/voiceink.png" alt="" loading="lazy">VoiceInk</div>
+      <div class="app-chip"><img src="assets/apps/macwhisper.png" alt="" loading="lazy">MacWhisper</div>
+      <div class="app-chip"><span class="app-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 11a7 7 0 0 1-14 0"/><path d="M12 18v4"/></svg></span>Apple Dictation</div>
+      <div class="app-chip"><img src="assets/apps/lispr.png" alt="" loading="lazy">Lispr</div>
+      <div class="app-chip"><img src="assets/apps/spokenly.png" alt="" loading="lazy">Spokenly</div>
+      <div class="app-chip"><img src="assets/apps/voibe.png" alt="" loading="lazy">Voibe</div>
+      <div class="app-chip"><img src="assets/apps/fluidvoice.png" alt="" loading="lazy">FluidVoice</div>
+      <div class="app-chip"><img src="assets/apps/handy.png" alt="" loading="lazy">Handy</div>
+      <div class="app-chip"><img src="assets/apps/hex.png" alt="" loading="lazy">Hex</div>
     </div>
     <p class="app-note">Using something else? Any dictation app with a hotkey works — you enter the hotkey once and TalkRemind shows it from then on.</p>
   </div>
