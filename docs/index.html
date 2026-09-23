@@ -29,6 +29,10 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  section[id] { scroll-margin-top: 84px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
   body {
     font-family: var(--sans);
     background: var(--paper);
@@ -52,6 +56,7 @@
   .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .15s; }
   .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 700; }
   @media (max-width: 720px) { .nav-links a:not(.nav-cta) { display: none; } }
 
   /* ---------- Buttons ---------- */
@@ -217,7 +222,8 @@
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after { content: '+'; font-size: 20px; font-weight: 400; color: var(--muted); transition: transform .25s ease; }
   .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item .faq-body-inner { padding: 0 24px 20px; font-size: 15px; color: var(--muted); }
+  .faq-item .faq-body-inner { padding: 0 24px 20px; font-size: 15px; color: var(--muted); overflow: hidden; }
+  .faq-item .faq-body-inner.animating { transition: height .28s cubic-bezier(.4,0,.2,1), opacity .22s ease; }
 
   footer { padding: 48px 0; border-top: 1px solid var(--line); }
   footer .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -226,6 +232,21 @@
   footer a:hover { color: var(--ink); }
   footer .foot-brand { font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
   footer .foot-brand img { width: 20px; height: 20px; border-radius: 5px; }
+
+  /* ---------- Scroll reveal ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity .6s cubic-bezier(.16,.8,.3,1), transform .6s cubic-bezier(.16,.8,.3,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .feature-grid > .reveal:nth-child(1), .style-grid > .reveal:nth-child(1), .claim-grid > .reveal:nth-child(1), .steps > .reveal:nth-child(1), .how-steps > .reveal:nth-child(1), .pricing-grid > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .feature-grid > .reveal:nth-child(2), .style-grid > .reveal:nth-child(2), .claim-grid > .reveal:nth-child(2), .steps > .reveal:nth-child(2), .how-steps > .reveal:nth-child(2), .pricing-grid > .reveal:nth-child(2) { transition-delay: 80ms; }
+    .feature-grid > .reveal:nth-child(3), .style-grid > .reveal:nth-child(3), .claim-grid > .reveal:nth-child(3), .steps > .reveal:nth-child(3), .how-steps > .reveal:nth-child(3) { transition-delay: 160ms; }
+    .feature-grid > .reveal:nth-child(4), .style-grid > .reveal:nth-child(4) { transition-delay: 240ms; }
+    .feature-grid > .reveal:nth-child(5) { transition-delay: 320ms; }
+    .feature-grid > .reveal:nth-child(6) { transition-delay: 400ms; }
+  }
 </style>
 </head>
 <body>
@@ -267,22 +288,22 @@
 
 <section class="ink" id="math">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Your dictation app promised 4×. Are you getting 4×?</h2>
       <p>These are the numbers the dictation apps put on their own front pages.</p>
     </div>
     <div class="claim-grid">
-      <div class="claim">
+      <div class="claim reveal">
         <div class="multiple">4×</div>
         <div class="who">Wispr Flow</div>
         <div class="what">&ldquo;4x faster than typing&rdquo; — 220 wpm spoken against a 45 wpm keyboard.</div>
       </div>
-      <div class="claim">
+      <div class="claim reveal">
         <div class="multiple">5×</div>
         <div class="who">Aqua Voice</div>
         <div class="what">&ldquo;5x faster than typing and twice as accurate&rdquo; — 230 wpm against 40 wpm.</div>
       </div>
-      <div class="claim">
+      <div class="claim reveal">
         <div class="multiple">5×</div>
         <div class="who">VoiceInk</div>
         <div class="what">&ldquo;Reply to emails 5× faster. Chat with AI apps 5× faster.&rdquo;</div>
@@ -295,9 +316,9 @@
 
 <section class="band" id="works-with">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>It works with the one you already have</h2>
-      <p>TalkRemind doesn't transcribe anything. It shows <em>your</em> dictation app's hotkey in the nudge — seventeen are recognised automatically, the rest you enter once.</p>
+      <p>TalkRemind doesn't transcribe anything. It shows <em>your</em> dictation app's hotkey in the nudge — twelve are recognised automatically, the rest you enter once.</p>
     </div>
     <div class="app-grid">
       <div class="app-chip"><img src="assets/apps/wisprflow.png" alt="" loading="lazy">Wispr Flow</div>
@@ -328,7 +349,7 @@
 
 <section id="features">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>It catches the habit slipping, not your typing</h2>
       <p>Dictation apps wait for a hotkey. TalkRemind is the part that remembers the hotkey exists — right as you're about to type past it.</p>
     </div>
@@ -336,32 +357,32 @@
       <strong>The clearest case: AI prompts.</strong> Claude, ChatGPT, Cursor's chat sidebar — formatting doesn't matter there, typos don't matter, and that's exactly where typing costs you the most time. If you're typing your prompts, this is built for you.
     </div>
     <div class="feature-grid">
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
         <h3>Right-moment nudges</h3>
         <p>Four styles, from a quietly-changing menu-bar icon to a brief on-screen dim. Pick one, test it instantly from the menu, change your mind later.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 21v-6M4 11V3M12 21v-9M12 8V3M20 21v-4M20 13V3"/><path d="M1.5 15h5M9.5 8h5M17.5 17h5"/></svg></div>
         <h3>Learns your typing</h3>
         <p>A 24-hour calibration run reads your actual typing behavior and suggests a starting sensitivity — not a guessed default.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.7 21a2 2 0 0 1-3.4 0"/><path d="M18.6 13A18 18 0 0 1 18 8"/><path d="M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14"/><path d="M18 8a6 6 0 0 0-9.3-5"/><path d="M2 2l20 20"/></svg></div>
         <h3>Backs off where it doesn't help</h3>
         <p>Five unheeded nudges in the same app, and TalkRemind offers to exempt it — instead of nagging somewhere it clearly isn't working.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
         <h3>Quiet hours &amp; exempt apps</h3>
         <p>Silence nudges in a time window you set, or in specific apps, always — no exceptions until you change it back.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1.3"/><rect x="14" y="4" width="4" height="16" rx="1.3"/></svg></div>
         <h3>Pause anytime</h3>
         <p>30 minutes, 2 hours, until this evening, or indefinitely — one click from the menu bar, no settings dive required.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-4-4L2 19"/><path d="M16 7h6v6"/></svg></div>
         <h3>The stats prove the habit is forming</h3>
         <p>Today's dictation share and a 7-day trend, computed from your own measured typing and dictation events — proof the adaptation is real, not just a good intention.</p>
@@ -372,19 +393,19 @@
 
 <section class="band">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Choose how it interrupts you</h2>
       <p>Every style is a click away in Preferences — test it live before you commit.</p>
     </div>
     <div class="style-grid">
-      <div class="style-card">
+      <div class="style-card reveal">
         <div class="swatch" aria-hidden="true">
           <div class="mini-bar"><i></i><i></i><i class="on"></i></div>
         </div>
         <h3>Subtle</h3>
         <p>Only the menu-bar icon briefly changes.</p>
       </div>
-      <div class="style-card">
+      <div class="style-card reveal">
         <div class="swatch" aria-hidden="true">
           <div class="mini-bar"><i></i><i></i><i></i></div>
           <div class="mini-panel" style="margin-top:14px;">Say it instead — Fn Fn</div>
@@ -393,7 +414,7 @@
         <p>A small panel appears for 3 seconds.</p>
         <span class="rec">Recommended</span>
       </div>
-      <div class="style-card">
+      <div class="style-card reveal">
         <div class="swatch" aria-hidden="true">
           <div class="mini-caret">
             <div class="line"></div>
@@ -404,7 +425,7 @@
         <h3>Textfield</h3>
         <p>A hint directly beneath your text cursor.</p>
       </div>
-      <div class="style-card">
+      <div class="style-card reveal">
         <div class="swatch" aria-hidden="true">
           <div class="mini-caret"><div class="line"></div><div class="line cursor"></div></div>
           <div class="mini-dim"><span>Speak instead</span></div>
@@ -418,12 +439,12 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>How it works</h2>
       <p>Reads keystroke timing, not keystroke content.</p>
     </div>
     <div class="how-steps">
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-text">
           <span class="how-num">1</span>
           <h3>It watches the rhythm, not the words</h3>
@@ -438,7 +459,7 @@
           <p class="illus-caption">Read-only keystroke timing. No text ever leaves the keyboard event.</p>
         </div>
       </div>
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-text">
           <span class="how-num">2</span>
           <h3>It notices when dictating would already be faster</h3>
@@ -453,7 +474,7 @@
           <p class="illus-caption">Per-app thresholds, quiet hours, and a hard cap on nudges per hour.</p>
         </div>
       </div>
-      <div class="how-step">
+      <div class="how-step reveal">
         <div class="how-text">
           <span class="how-num">3</span>
           <h3>It nudges once, then gets out of the way</h3>
@@ -470,18 +491,18 @@
 
 <section class="ink" id="pricing">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>The money bit</h2>
       <p>You already paid real money to be able to dictate. This is the part that makes sure that wasn't wasted.</p>
     </div>
     <div class="pricing-grid">
-      <div class="price-card">
+      <div class="price-card reveal">
         <div class="tier">Trial</div>
         <div class="amount">Free for 14 days</div>
         <p>Every nudge style, calibration, and the stats — fully unlocked. No account, no credit card.</p>
         <a href="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.0.dmg" class="btn btn-outline-light">Download the trial</a>
       </div>
-      <div class="price-card highlight">
+      <div class="price-card highlight reveal">
         <div class="tier">License</div>
         <div class="amount">€6.99 once</div>
         <p>After the trial, nudges stop — but your stats keep recording for free, so you can watch your dictation share the moment the nudges go quiet. Buying turns them back on, for good.</p>
@@ -494,22 +515,22 @@
 
 <section id="install">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>First launch</h2>
       <p>Two minutes, no App Store.</p>
     </div>
     <div class="steps">
-      <div class="step">
+      <div class="step reveal">
         <span class="num">01</span>
         <h3>Download &amp; drag to Applications</h3>
         <p>Grab the latest release from <a href="https://github.com/4IngoJ/TalkRemind-releases/releases">GitHub</a>. Open the disk image, drag TalkRemind into Applications, done.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <span class="num">02</span>
         <h3>Allow Accessibility access</h3>
         <p>One prompt under <code>System Settings → Privacy &amp; Security</code>. Read-only keystroke timing — that's the whole ask.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <span class="num">03</span>
         <h3>Pick your dictation app</h3>
         <p>Wispr Flow, superwhisper, VoiceInk, macOS Dictation — whichever you already use. TalkRemind shows its hotkey right in the nudge.</p>
@@ -521,7 +542,7 @@
 
 <section class="band" id="faq">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Questions</h2>
       <p>The ones that actually come up.</p>
     </div>
@@ -571,6 +592,106 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal: fade+rise content blocks into view once, never re-hide.
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealItems = document.querySelectorAll('.reveal');
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealItems.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // Scrollspy: highlight the nav link for the section currently in view.
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  if (navLinks.length && sections.length && 'IntersectionObserver' in window) {
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (a) { a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { spyObserver.observe(s); });
+
+    // Above the first tracked section (still in the hero) — nothing should read as active.
+    var firstSectionTop = sections[0].getBoundingClientRect().top + window.scrollY;
+    var clearIfAboveAll = function () {
+      if (window.scrollY < firstSectionTop - 84) {
+        navLinks.forEach(function (a) { a.classList.remove('active'); });
+      }
+    };
+    window.addEventListener('scroll', clearIfAboveAll, { passive: true });
+    clearIfAboveAll();
+  }
+
+  // FAQ: animate <details> open/close instead of the native instant snap.
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var summary = item.querySelector('summary');
+    var body = item.querySelector('.faq-body-inner');
+    if (!summary || !body) return;
+
+    summary.addEventListener('click', function (e) {
+      if (reduceMotion) return; // let the native toggle handle it instantly
+      e.preventDefault();
+      if (item.open) {
+        collapse();
+      } else {
+        item.open = true;
+        expand();
+      }
+    });
+
+    function expand() {
+      body.classList.add('animating');
+      var target = body.scrollHeight;
+      body.style.height = '0px';
+      body.style.opacity = '0';
+      requestAnimationFrame(function () {
+        body.style.height = target + 'px';
+        body.style.opacity = '1';
+      });
+      body.addEventListener('transitionend', function onEnd() {
+        body.style.height = '';
+        body.classList.remove('animating');
+        body.removeEventListener('transitionend', onEnd);
+      }, { once: true });
+    }
+
+    function collapse() {
+      body.classList.add('animating');
+      body.style.height = body.scrollHeight + 'px';
+      body.style.opacity = '1';
+      requestAnimationFrame(function () {
+        body.style.height = '0px';
+        body.style.opacity = '0';
+      });
+      body.addEventListener('transitionend', function onEnd() {
+        item.open = false;
+        body.style.height = '';
+        body.style.opacity = '';
+        body.classList.remove('animating');
+        body.removeEventListener('transitionend', onEnd);
+      }, { once: true });
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
