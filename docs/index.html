@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TalkRemind — Nudges you to dictate instead of type, on macOS</title>
-<meta name="description" content="TalkRemind is a macOS menu-bar app that notices when you're typing a long stretch instead of dictating it, and nudges you — right in the moment — to switch to the dictation app you already own.">
+<title>TalkRemind — Finally use the dictation app you bought, on macOS</title>
+<meta name="description" content="You already want to dictate more. TalkRemind is the macOS menu-bar app that catches the moment you slip back into typing and nudges you back to the dictation app you already own — right when it matters most.">
 <link rel="canonical" href="https://4ingoj.github.io/TalkRemind-releases/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://4ingoj.github.io/TalkRemind-releases/">
-<meta property="og:title" content="TalkRemind — Nudges you to dictate instead of type">
-<meta property="og:description" content="Notices when you're typing instead of dictating, and nudges you at the right moment. Free for 14 days, €19.99 once.">
+<meta property="og:title" content="TalkRemind — Finally use the dictation app you bought">
+<meta property="og:description" content="Catches the moment you slip back into typing and nudges you back to dictating. Free for 14 days, €6.99 once.">
 <meta property="og:image" content="https://4ingoj.github.io/TalkRemind-releases/assets/app-icon.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://4ingoj.github.io/TalkRemind-releases/assets/app-icon.png">
@@ -149,6 +149,10 @@
   .maker-note a { color: rgba(250,250,248,.8); text-decoration: none; border-bottom: 1px solid rgba(250,250,248,.25); }
   .maker-note a:hover { border-color: rgba(250,250,248,.7); }
 
+  /* ---------- Callout ---------- */
+  .callout { max-width: 680px; margin: 0 auto 48px; background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--ink); border-radius: 12px; padding: 20px 24px; font-size: 15px; color: var(--muted); text-align: center; }
+  .callout strong { color: var(--ink); }
+
   /* ---------- Install ---------- */
   .steps { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); max-width: 960px; margin: 0 auto; }
   @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
@@ -197,20 +201,23 @@
 <header class="hero wrap">
   <img class="icon" src="assets/app-icon.png" alt="TalkRemind app icon">
   <div class="eyebrow">macOS 14+</div>
-  <h1>You just typed that. You could have said it.</h1>
-  <p class="sub">TalkRemind watches how you type — not what you type — and nudges you, right in the moment, to switch to the dictation app you already pay for and barely use.</p>
+  <h1>You bought a dictation app. You're still typing.</h1>
+  <p class="sub">You wanted to dictate more — you set it up, you meant to use it. TalkRemind catches the moment you default to typing instead, and nudges you back, right when it matters most: AI prompts, Slack, long emails.</p>
   <div class="cta-row">
     <a href="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.0.dmg" class="btn btn-primary">Download for macOS</a>
     <a href="#pricing" class="btn btn-secondary">See pricing</a>
   </div>
-  <p class="price-note">Free for 14 days, then <a href="#pricing">€19.99 once</a>. First 100 buyers: €14.99.</p>
+  <p class="price-note">Free for 14 days, then <a href="#pricing">€6.99 once</a>.</p>
 </header>
 
 <section id="features">
   <div class="wrap">
     <div class="section-head">
-      <h2>It catches the moment you forget you have a better option</h2>
-      <p>Dictation apps wait for a hotkey. TalkRemind is the part that remembers the hotkey exists.</p>
+      <h2>It catches the habit slipping, not your typing</h2>
+      <p>Dictation apps wait for a hotkey. TalkRemind is the part that remembers the hotkey exists — right as you're about to type past it.</p>
+    </div>
+    <div class="callout">
+      <strong>The clearest case: AI prompts.</strong> Claude, ChatGPT, Cursor's chat sidebar — formatting doesn't matter there, typos don't matter, and that's exactly where typing costs you the most time. If you're typing your prompts, this is built for you.
     </div>
     <div class="feature-grid">
       <div class="card">
@@ -240,8 +247,8 @@
       </div>
       <div class="card">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9M12 19V5M20 19v-7"/></svg></div>
-        <h3>The stats prove it</h3>
-        <p>Today's dictation share and a 7-day trend, computed from your own measured typing and dictation events — not a marketing estimate.</p>
+        <h3>The stats prove the habit is forming</h3>
+        <p>Today's dictation share and a 7-day trend, computed from your own measured typing and dictation events — proof the adaptation is real, not just a good intention.</p>
       </div>
     </div>
   </div>
@@ -309,9 +316,9 @@
         </div>
         <div class="how-illus">
           <div class="illus-chips">
-            <span class="illus-chip">Mail</span>
             <span class="illus-chip">Slack</span>
-            <span class="illus-chip app">Notes</span>
+            <span class="illus-chip">Mail</span>
+            <span class="illus-chip app">Claude / ChatGPT</span>
           </div>
           <p class="illus-caption">Per-app thresholds, quiet hours, and a hard cap on nudges per hour.</p>
         </div>
@@ -335,7 +342,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>The money bit</h2>
-      <p>Free to try. One payment to keep the nudges.</p>
+      <p>You already paid real money to be able to dictate. This is the part that makes sure that wasn't wasted.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card">
@@ -346,8 +353,7 @@
       </div>
       <div class="price-card highlight">
         <div class="tier">License</div>
-        <div class="amount">€19.99 once</div>
-        <p class="note">First 100 buyers: €14.99.</p>
+        <div class="amount">€6.99 once</div>
         <p>After the trial, nudges stop — but your stats keep recording for free, so you can watch your dictation share the moment the nudges go quiet. Buying turns them back on, for good.</p>
         <a href="#faq" class="btn btn-light">How buying works</a>
       </div>
@@ -390,6 +396,10 @@
       <p>The ones that actually come up.</p>
     </div>
     <div class="faq-list">
+      <details class="faq-item">
+        <summary>I already have a dictation app — why do I need this too?</summary>
+        <div class="faq-body-inner">Because owning it isn't the same as using it. Most people who buy a dictation app end up reaching for it a fraction of the time they meant to, then fall back into typing out of habit. TalkRemind is the nudge that closes that gap — it doesn't replace your dictation app, it makes sure you actually open it.</div>
+      </details>
       <details class="faq-item">
         <summary>Does it read what I'm typing?</summary>
         <div class="faq-body-inner">No. TalkRemind only observes keystroke timing through the macOS Accessibility API — when you type and how much, never the characters themselves.</div>
