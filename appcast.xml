@@ -6,22 +6,24 @@
         <description>Update feed for TalkRemind.</description>
         <language>en</language>
         <item>
-            <title>Version 0.8.0</title>
-            <pubDate>Tue, 22 Sep 2026 19:53:18 +0000</pubDate>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>0.8.0</sparkle:shortVersionString>
+            <title>Version 0.8.1</title>
+            <pubDate>Wed, 23 Sep 2026 17:00:22 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>0.8.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description>
                 <![CDATA[
-                  <h3>0.8.0</h3>
+                  <h3>0.8.1</h3>
                   <ul>
-                    <li>Redesigned stats popover: large donut for today's dictation share, a 7-day trend line, a pause button, and an app-icon header.</li>
-                    <li>Settings rebuilt as a single scrolling page of cards (icon-chip rows, real app icons in the exemption list, four selectable nudge-style cards) instead of a sidebar.</li>
-                    <li>Menu bar icon is a thicker donut by default, with the app-icon "fill" style available as an option under Allgemein.</li>
+                    <li>"Notable" nudges are now a real macOS system notification instead of a custom panel; "Subtle" blinks the menu bar icon red.</li>
+                    <li>Stats popover: a new "Erinnert" tab shows how often each app got nudged, today or over the last 7 days, scrollable up to 15 apps.</li>
+                    <li>Recognizes 5 more dictation apps: Willow Voice, Voicy, BetterDictation, Dictato, Weesper.</li>
+                    <li>Trial days remaining now show in the right-click menu, not just Settings.</li>
+                    <li>Settings shows the running app version, and the Daten/Lizenz cards are more compact.</li>
                   </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.0.zip" length="5048656" type="application/octet-stream" sparkle:edSignature="prJ+QGTXnJkVMtYUp14dIWZcNtHXs5YQihqMifZyCht3klfvBBqxVj+c9pbdLBJ14n2h+OBGzWJWdmnIXFQkCg=="/>
+            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.1.zip" length="5074024" type="application/octet-stream" sparkle:edSignature="T3qn3chZJqgbBqHnLP5aiU6Hr9vUDUayEsYEBN+uDYDKUyqnIQkV9IwCzT+VNQXmCeAZu9SDLZJpt19TXetKBA=="/>
         </item>
     </channel>
 </rss>
