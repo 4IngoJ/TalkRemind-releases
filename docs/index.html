@@ -67,17 +67,23 @@
   .btn-outline-light:hover { border-color: rgba(250,250,248,.6); }
 
   /* ---------- Hero ---------- */
-  .hero { padding: 96px 0 80px; text-align: center; }
-  .hero img.icon { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 8px 28px rgba(20,20,19,.14); margin-bottom: 28px; }
-  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 24px; background: var(--white); }
-  h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 700; max-width: 820px; margin: 0 auto 24px; }
+  .hero { padding: 96px 24px 80px; text-align: center; }
+  .hero img.icon { display: block; width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 8px 28px rgba(20,20,19,.14); margin: 0 auto 22px; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; background: var(--white); }
+  h1 { font-size: clamp(36px, 5.6vw, 60px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700; max-width: 880px; margin: 0 auto 24px; }
+  .hero h1 .punch { display: inline-block; position: relative; }
+  .hero h1 .punch-line {
+    position: absolute; left: -1.5%; bottom: -.13em; width: 103%; height: .28em;
+    overflow: visible; fill: none; stroke: var(--ink);
+    stroke-width: clamp(3px, .38vw, 5px); stroke-linecap: round; stroke-linejoin: round;
+  }
   .hero p.sub { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 640px; margin: 0 auto 36px; }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .hero .price-note { margin-top: 22px; font-size: 14px; color: var(--muted); }
   .hero .price-note a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
   .hero .price-note a:hover { border-color: var(--ink); }
   @media (max-width: 480px) {
-    .hero { padding: 64px 0 56px; }
+    .hero { padding: 64px 24px 56px; }
     .cta-row .btn { width: 100%; justify-content: center; }
     section { padding: 64px 0; }
   }
@@ -105,11 +111,43 @@
   /* ---------- Nudge style swatches ---------- */
   .style-grid { display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); max-width: 960px; margin: 0 auto; }
   @media (max-width: 760px) { .style-grid { grid-template-columns: repeat(2, 1fr); } }
-  .style-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; text-align: center; }
-  .style-card .swatch { height: 64px; border-radius: 10px; background: var(--band); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .style-card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px 24px; text-align: center; }
+  .style-card .swatch { height: 84px; border-radius: 10px; background: var(--band); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden; position: relative; }
   .style-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
   .style-card p { font-size: 13.5px; color: var(--muted); }
   .style-card .rec { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+
+  /* Miniature previews of each nudge style */
+  .mini-bar { position: absolute; top: 0; left: 0; right: 0; height: 14px; background: rgba(20,20,19,.1); display: flex; align-items: center; justify-content: flex-end; gap: 5px; padding-right: 7px; }
+  .mini-bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(20,20,19,.28); }
+  .mini-bar i.on { background: var(--accent); box-shadow: 0 0 0 3px rgba(43,90,228,.22); }
+  .mini-panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: 10px; font-weight: 700; color: var(--ink); box-shadow: 0 4px 12px rgba(20,20,19,.14); }
+  .mini-caret { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .mini-caret .line { width: 74px; height: 5px; border-radius: 2px; background: rgba(20,20,19,.18); }
+  .mini-caret .line.cursor { width: 34px; position: relative; }
+  .mini-caret .line.cursor::after { content: ''; position: absolute; right: -5px; top: -3px; width: 2px; height: 11px; background: var(--ink); }
+  .mini-hint { font-size: 9px; font-weight: 700; color: var(--paper); background: var(--ink); border-radius: 5px; padding: 3px 7px; align-self: flex-start; }
+  .mini-dim { position: absolute; inset: 0; background: rgba(20,20,19,.84); display: flex; align-items: center; justify-content: center; }
+  .mini-dim span { font-size: 10px; font-weight: 700; color: var(--paper); border: 1px solid rgba(250,250,248,.4); border-radius: 999px; padding: 5px 11px; }
+
+  /* ---------- The math (claims) ---------- */
+  .claim-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto 40px; }
+  @media (max-width: 760px) { .claim-grid { grid-template-columns: 1fr; } }
+  .claim { background: rgba(250,250,248,.05); border: 1px solid rgba(250,250,248,.14); border-radius: var(--radius); padding: 26px 24px; text-align: center; }
+  .claim .multiple { font-size: 42px; font-weight: 700; letter-spacing: -.02em; color: #7DA2FF; line-height: 1; margin-bottom: 12px; }
+  .claim .who { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .claim .what { font-size: 13.5px; color: rgba(250,250,248,.6); }
+  .math-punch { max-width: 700px; margin: 0 auto; text-align: center; font-size: 18px; line-height: 1.6; color: rgba(250,250,248,.75); }
+  .math-punch strong { color: var(--paper); font-weight: 600; }
+  .claim-note { max-width: 700px; margin: 30px auto 0; text-align: center; font-size: 13px; line-height: 1.6; color: rgba(250,250,248,.4); }
+  .claim-note a { color: rgba(250,250,248,.62); text-decoration: none; border-bottom: 1px solid rgba(250,250,248,.22); }
+  .claim-note a:hover { color: var(--paper); border-color: rgba(250,250,248,.6); }
+
+  /* ---------- Supported apps ---------- */
+  .app-grid { display: grid; gap: 10px; grid-template-columns: repeat(4, 1fr); max-width: 840px; margin: 0 auto; }
+  @media (max-width: 760px) { .app-grid { grid-template-columns: repeat(2, 1fr); } }
+  .app-chip { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 15px 14px; font-size: 14.5px; font-weight: 600; text-align: center; }
+  .app-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 30px; max-width: 620px; margin-left: auto; margin-right: auto; }
 
   /* ---------- How it works ---------- */
   .how-steps { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
@@ -190,6 +228,7 @@
     <a href="#" class="wordmark"><img src="assets/app-icon.png" alt=""> TalkRemind</a>
     <div class="nav-links">
       <a href="#features">Features</a>
+      <a href="#works-with">Works with</a>
       <a href="#pricing">Pricing</a>
       <a href="#install">Install</a>
       <a href="#faq">FAQ</a>
@@ -201,7 +240,15 @@
 <header class="hero wrap">
   <img class="icon" src="assets/app-icon.png" alt="TalkRemind app icon">
   <div class="eyebrow">macOS 14+</div>
-  <h1>You bought a dictation app. You're still typing.</h1>
+  <h1>
+    You bought a dictation app. But you're still typing?<br>
+    <span class="punch">
+      Not anymore.
+      <svg class="punch-line" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M4 8.6c21-3.6 50-5.5 85-5.7 34-.2 69 1.4 107 4.8" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </span>
+  </h1>
   <p class="sub">You wanted to dictate more — you set it up, you meant to use it. TalkRemind catches the moment you default to typing instead, and nudges you back, right when it matters most: AI prompts, Slack, long emails.</p>
   <div class="cta-row">
     <a href="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.0.dmg" class="btn btn-primary">Download for macOS</a>
@@ -209,6 +256,58 @@
   </div>
   <p class="price-note">Free for 14 days, then <a href="#pricing">€6.99 once</a>.</p>
 </header>
+
+<section class="ink" id="math">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Your dictation app promised 4×. Are you getting 4×?</h2>
+      <p>These are the numbers the dictation apps put on their own front pages.</p>
+    </div>
+    <div class="claim-grid">
+      <div class="claim">
+        <div class="multiple">4×</div>
+        <div class="who">Wispr Flow</div>
+        <div class="what">&ldquo;4x faster than typing&rdquo; — 220 wpm spoken against a 45 wpm keyboard.</div>
+      </div>
+      <div class="claim">
+        <div class="multiple">5×</div>
+        <div class="who">Aqua Voice</div>
+        <div class="what">&ldquo;5x faster than typing and twice as accurate&rdquo; — 230 wpm against 40 wpm.</div>
+      </div>
+      <div class="claim">
+        <div class="multiple">5×</div>
+        <div class="who">VoiceInk</div>
+        <div class="what">&ldquo;Reply to emails 5× faster. Chat with AI apps 5× faster.&rdquo;</div>
+      </div>
+    </div>
+    <p class="math-punch">Those numbers are probably right — <strong>for the words you actually speak.</strong> A multiplier only applies to the share you dictate. Speak a fifth of what you write, and you collect a fifth of what you were sold. <strong>Raising that share is the only thing TalkRemind does.</strong></p>
+    <p class="claim-note">Claims as published by each vendor on their own site, checked September 2026 — their assertions, not measurements of ours. The independent number is lower and still large: a Stanford study clocked speech at <a href="https://news.stanford.edu/stories/2016/08/stanford-study-speech-recognition-faster-texting">2.93× faster than a keyboard</a> (153 vs 52 wpm, English, mobile text entry).</p>
+  </div>
+</section>
+
+<section class="band" id="works-with">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>It works with the one you already have</h2>
+      <p>TalkRemind doesn't transcribe anything. It recognises these apps and puts <em>their</em> hotkey in the nudge.</p>
+    </div>
+    <div class="app-grid">
+      <div class="app-chip">Wispr Flow</div>
+      <div class="app-chip">superwhisper</div>
+      <div class="app-chip">Aqua Voice</div>
+      <div class="app-chip">VoiceInk</div>
+      <div class="app-chip">MacWhisper</div>
+      <div class="app-chip">Apple Dictation</div>
+      <div class="app-chip">Lispr</div>
+      <div class="app-chip">Spokenly</div>
+      <div class="app-chip">Voibe</div>
+      <div class="app-chip">FluidVoice</div>
+      <div class="app-chip">Handy</div>
+      <div class="app-chip">Hex</div>
+    </div>
+    <p class="app-note">Using something else? Any dictation app with a hotkey works — you enter the hotkey once and TalkRemind shows it from then on.</p>
+  </div>
+</section>
 
 <section id="features">
   <div class="wrap">
@@ -221,32 +320,32 @@
     </div>
     <div class="feature-grid">
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14M12 17l-4-4M12 17l4-4"/><path d="M5 21h14"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
         <h3>Right-moment nudges</h3>
         <p>Four styles, from a quietly-changing menu-bar icon to a brief on-screen dim. Pick one, test it instantly from the menu, change your mind later.</p>
       </div>
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 21v-6M4 11V3M12 21v-9M12 8V3M20 21v-4M20 13V3"/><path d="M1.5 15h5M9.5 8h5M17.5 17h5"/></svg></div>
         <h3>Learns your typing</h3>
         <p>A 24-hour calibration run reads your actual typing behavior and suggests a starting sensitivity — not a guessed default.</p>
       </div>
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.7 21a2 2 0 0 1-3.4 0"/><path d="M18.6 13A18 18 0 0 1 18 8"/><path d="M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14"/><path d="M18 8a6 6 0 0 0-9.3-5"/><path d="M2 2l20 20"/></svg></div>
         <h3>Backs off where it doesn't help</h3>
         <p>Five unheeded nudges in the same app, and TalkRemind offers to exempt it — instead of nagging somewhere it clearly isn't working.</p>
       </div>
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
         <h3>Quiet hours &amp; exempt apps</h3>
         <p>Silence nudges in a time window you set, or in specific apps, always — no exceptions until you change it back.</p>
       </div>
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v16l14-8z"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1.3"/><rect x="14" y="4" width="4" height="16" rx="1.3"/></svg></div>
         <h3>Pause anytime</h3>
         <p>30 minutes, 2 hours, until this evening, or indefinitely — one click from the menu bar, no settings dive required.</p>
       </div>
       <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9M12 19V5M20 19v-7"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-4-4L2 19"/><path d="M16 7h6v6"/></svg></div>
         <h3>The stats prove the habit is forming</h3>
         <p>Today's dictation share and a 7-day trend, computed from your own measured typing and dictation events — proof the adaptation is real, not just a good intention.</p>
       </div>
@@ -262,23 +361,37 @@
     </div>
     <div class="style-grid">
       <div class="style-card">
-        <div class="swatch"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="swatch" aria-hidden="true">
+          <div class="mini-bar"><i></i><i></i><i class="on"></i></div>
+        </div>
         <h3>Subtle</h3>
         <p>Only the menu-bar icon briefly changes.</p>
       </div>
       <div class="style-card">
-        <div class="swatch"><svg width="24" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="22" height="14" rx="3"/></svg></div>
+        <div class="swatch" aria-hidden="true">
+          <div class="mini-bar"><i></i><i></i><i></i></div>
+          <div class="mini-panel" style="margin-top:14px;">Say it instead — Fn Fn</div>
+        </div>
         <h3>Notable</h3>
         <p>A small panel appears for 3 seconds.</p>
         <span class="rec">Recommended</span>
       </div>
       <div class="style-card">
-        <div class="swatch"><svg width="24" height="4" viewBox="0 0 24 4" fill="currentColor"><rect width="24" height="4" rx="2"/></svg></div>
+        <div class="swatch" aria-hidden="true">
+          <div class="mini-caret">
+            <div class="line"></div>
+            <div class="line cursor"></div>
+            <div class="mini-hint">Fn Fn to dictate</div>
+          </div>
+        </div>
         <h3>Textfield</h3>
         <p>A hint directly beneath your text cursor.</p>
       </div>
       <div class="style-card">
-        <div class="swatch" style="background:#141413;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FAFAF8" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg></div>
+        <div class="swatch" aria-hidden="true">
+          <div class="mini-caret"><div class="line"></div><div class="line cursor"></div></div>
+          <div class="mini-dim"><span>Speak instead</span></div>
+        </div>
         <h3>ScreenBlock</h3>
         <p>The screen briefly dims — a reminder you'll actually notice.</p>
       </div>
@@ -410,7 +523,11 @@
       </details>
       <details class="faq-item">
         <summary>Which dictation apps does it work with?</summary>
-        <div class="faq-body-inner">Any app you trigger with a hotkey — Wispr Flow, superwhisper, VoiceInk, Aqua Voice, macOS's built-in Dictation, and others. TalkRemind shows that app's own hotkey in the nudge, it doesn't replace your dictation app.</div>
+        <div class="faq-body-inner">Twelve are recognised on sight — Wispr Flow, superwhisper, Aqua Voice, VoiceInk, MacWhisper, Apple Dictation, Lispr, Spokenly, Voibe, FluidVoice, Handy and Hex (<a href="#works-with" style="color:inherit;">full list above</a>). Anything else with a hotkey works too; you enter the hotkey once. TalkRemind never transcribes anything itself — it only points you at the app that does.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much time will this actually save me?</summary>
+        <div class="faq-body-inner">That depends entirely on how much more you end up dictating, which is why the app measures it instead of promising it. The arithmetic is simple: your dictation app's speed advantage applies only to the words you speak. Wispr Flow puts that advantage at 4×, Aqua Voice at 5×; an independent Stanford study measured 2.93×. Move a quarter of your writing from keyboard to voice and you capture a quarter of whichever number turns out to be true for you. The stats screen shows your real share, so you can check the claim against your own week rather than take anyone's word for it.</div>
       </details>
       <details class="faq-item">
         <summary>Can I turn it off for specific apps or times?</summary>
