@@ -150,6 +150,10 @@
   .app-chip img, .app-chip .app-glyph { width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0; object-fit: cover; }
   .app-chip .app-glyph { background: var(--band); display: flex; align-items: center; justify-content: center; color: var(--ink); }
   .app-chip .app-glyph svg { width: 15px; height: 15px; }
+  .app-chip.custom { background: transparent; border-style: dashed; border-color: #cfccc4; }
+  .app-chip.custom .app-glyph { background: transparent; border: 1px dashed #cfccc4; color: var(--muted); }
+  .app-chip.custom .chip-label { display: flex; flex-direction: column; gap: 1px; }
+  .app-chip.custom .chip-label small { font-size: 11.5px; font-weight: 500; color: var(--muted); }
   .app-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 30px; max-width: 620px; margin-left: auto; margin-right: auto; }
 
   /* ---------- How it works ---------- */
@@ -313,8 +317,12 @@
       <div class="app-chip"><img src="assets/apps/betterdictation.png" alt="" loading="lazy">BetterDictation</div>
       <div class="app-chip"><img src="assets/apps/dictato.png" alt="" loading="lazy">Dictato</div>
       <div class="app-chip"><img src="assets/apps/weesper.png" alt="" loading="lazy">Weesper</div>
+      <div class="app-chip custom">
+        <span class="app-glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span class="chip-label">Your custom app<small>Built your own? Works too.</small></span>
+      </div>
     </div>
-    <p class="app-note">Using something else? Any dictation app with a hotkey works — you enter the hotkey once and TalkRemind shows it from then on.</p>
+    <p class="app-note">Using something else — including a script or app you built yourself? Any dictation tool with a hotkey works. You enter the hotkey once and TalkRemind shows it from then on.</p>
   </div>
 </section>
 
