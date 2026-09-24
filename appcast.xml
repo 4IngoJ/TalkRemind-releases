@@ -6,24 +6,21 @@
         <description>Update feed for TalkRemind.</description>
         <language>en</language>
         <item>
-            <title>Version 0.9.0</title>
-            <pubDate>Thu, 24 Sep 2026 13:35:00 +0000</pubDate>
-            <sparkle:version>4</sparkle:version>
-            <sparkle:shortVersionString>0.9.0</sparkle:shortVersionString>
+            <title>Version 0.10.0</title>
+            <pubDate>Thu, 24 Sep 2026 14:55:00 +0000</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.10.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description>
                 <![CDATA[
-                  <h3>0.9.0</h3>
+                  <h3>0.10.0</h3>
                   <ul>
-                    <li>Redesigned onboarding: a monochrome look matching the app icon, a new intro screen, and a permission step that opens System Settings directly and notices the grant on its own.</li>
-                    <li>Redesigned stats popover with an animated donut and a native trend chart.</li>
-                    <li>More visible menu bar icon: new Logo, Symbol and "+ dictation share" styles, and a higher-contrast default.</li>
-                    <li>The "Erinnert" tab now counts only reminders that were actually shown.</li>
-                    <li>The app starts in your Mac's language; you can still pick another one in Settings.</li>
+                    <li>Optional iCloud sync: keeps your statistics and settings in step across your Macs. Off by default — turn it on in Settings › iCloud.</li>
+                    <li>Deleting all data with sync on now clears it on every synced Mac too.</li>
                   </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.9.0.zip" length="5628874" type="application/octet-stream" sparkle:edSignature="TRnfG8xNBJgNptGLvjr6BIZD3o5RPC4UwVX3j3u6s1+E2iTALCmbD5dONwpRQWLPudrw3JQi6GJyPOqm0XSGAw=="/>
+            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.10.0.zip" length="5789359" type="application/octet-stream" sparkle:edSignature="7M5ubkcfYnD5/Zi31fr6OcobO/pckfwzO3xrDE0OcAIBODcgJUiAyG8SY0Vdn/s9dxH0lwApqN86Oct+pyjyAA=="/>
         </item>
     </channel>
 </rss>
