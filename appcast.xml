@@ -6,24 +6,24 @@
         <description>Update feed for TalkRemind.</description>
         <language>en</language>
         <item>
-            <title>Version 0.8.1</title>
-            <pubDate>Wed, 23 Sep 2026 17:00:22 +0000</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>0.8.1</sparkle:shortVersionString>
+            <title>Version 0.9.0</title>
+            <pubDate>Thu, 24 Sep 2026 13:35:00 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>0.9.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description>
                 <![CDATA[
-                  <h3>0.8.1</h3>
+                  <h3>0.9.0</h3>
                   <ul>
-                    <li>"Notable" nudges are now a real macOS system notification instead of a custom panel; "Subtle" blinks the menu bar icon red.</li>
-                    <li>Stats popover: a new "Erinnert" tab shows how often each app got nudged, today or over the last 7 days, scrollable up to 15 apps.</li>
-                    <li>Recognizes 5 more dictation apps: Willow Voice, Voicy, BetterDictation, Dictato, Weesper.</li>
-                    <li>Trial days remaining now show in the right-click menu, not just Settings.</li>
-                    <li>Settings shows the running app version, and the Daten/Lizenz cards are more compact.</li>
+                    <li>Redesigned onboarding: a monochrome look matching the app icon, a new intro screen, and a permission step that opens System Settings directly and notices the grant on its own.</li>
+                    <li>Redesigned stats popover with an animated donut and a native trend chart.</li>
+                    <li>More visible menu bar icon: new Logo, Symbol and "+ dictation share" styles, and a higher-contrast default.</li>
+                    <li>The "Erinnert" tab now counts only reminders that were actually shown.</li>
+                    <li>The app starts in your Mac's language; you can still pick another one in Settings.</li>
                   </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.8.1.zip" length="5074024" type="application/octet-stream" sparkle:edSignature="T3qn3chZJqgbBqHnLP5aiU6Hr9vUDUayEsYEBN+uDYDKUyqnIQkV9IwCzT+VNQXmCeAZu9SDLZJpt19TXetKBA=="/>
+            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.9.0.zip" length="5628874" type="application/octet-stream" sparkle:edSignature="TRnfG8xNBJgNptGLvjr6BIZD3o5RPC4UwVX3j3u6s1+E2iTALCmbD5dONwpRQWLPudrw3JQi6GJyPOqm0XSGAw=="/>
         </item>
     </channel>
 </rss>
