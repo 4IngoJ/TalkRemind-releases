@@ -51,9 +51,7 @@
   /* ---------- Nav ---------- */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,249,247,.85);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    background: var(--paper);
     border-bottom: 1px solid var(--line);
   }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
@@ -80,7 +78,6 @@
   /* ---------- Hero ---------- */
   .hero { padding: 96px 24px 80px; text-align: center; }
   .hero img.icon { display: block; width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 8px 28px rgba(20,20,19,.14); margin: 0 auto 22px; }
-  .eyebrow { display: inline-block; font-family: var(--mono); text-transform: uppercase; font-size: 12px; font-weight: 500; letter-spacing: .07em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; background: var(--white); }
   h1 { font-size: clamp(36px, 5.6vw, 60px); line-height: 1.05; letter-spacing: -0.04em; font-weight: 700; max-width: 880px; margin: 0 auto 24px; }
   .hero h1 .punch { display: inline-block; position: relative; }
   .hero h1 .punch-line {
@@ -154,10 +151,20 @@
 
   /* ---------- Onboarding gallery ---------- */
   .gallery { max-width: 460px; margin: 0 auto; }
-  .gallery-viewport { position: relative; }
-  .gallery-slide { display: block; width: 100%; height: auto; }
-  .gallery-slide[hidden] { display: none; }
-  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: rgba(250,249,247,.92); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: 0 4px 12px rgba(26,25,23,.12); font-size: 16px; padding: 0; }
+  .gallery-viewport { position: relative; aspect-ratio: 712 / 722; overflow: hidden; border-radius: 14px; }
+  .gallery-slide {
+    position: absolute; inset: 0; opacity: 0; pointer-events: none;
+    transform: translateX(0);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .gallery-slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .gallery-slide.is-active { opacity: 1; pointer-events: auto; z-index: 1; }
+  .gallery-slide.dir-in-next { transform: translateX(28px); }
+  .gallery-slide.dir-in-prev { transform: translateX(-28px); }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery-slide { transition: opacity .01s linear; transform: none; }
+  }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: rgba(250,249,247,.92); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #000; z-index: 2; box-shadow: 0 4px 12px rgba(26,25,23,.12); font-size: 16px; padding: 0; }
   .gallery-prev { left: 10px; } .gallery-next { right: 10px; }
   .gallery-arrow svg { width: 16px; height: 16px; }
   .gallery-caption { text-align: center; font-family: var(--mono); text-transform: uppercase; font-size: 11.5px; letter-spacing: .07em; color: var(--muted); margin-top: 16px; }
@@ -298,7 +305,6 @@
 
 <header class="hero wrap">
   <img class="icon" src="assets/app-icon-small.png" width="84" height="84" alt="TalkRemind app icon">
-  <div class="eyebrow">macOS 14+</div>
   <h1>
     You bought a dictation app.<br>
     But you're still typing?<br>
@@ -477,12 +483,12 @@
   </div>
   <div class="gallery" data-gallery>
     <div class="gallery-viewport">
-      <picture class="gallery-slide" data-caption="Welcome"><source type="image/webp" srcset="assets/screens/onb-welcome.webp"><img src="assets/screens/onb-welcome.png" width="712" height="722" alt="Welcome screen: TalkRemind counts keystrokes, never content"></picture>
-      <picture class="gallery-slide" data-caption="Your dictation app" hidden><source type="image/webp" srcset="assets/screens/onb-dictation.webp"><img src="assets/screens/onb-dictation.png" width="712" height="722" alt="Choose your dictation app, detected automatically, with a 20-second test" loading="lazy"></picture>
-      <picture class="gallery-slide" data-caption="Reminder style" hidden><source type="image/webp" srcset="assets/screens/onb-style.webp"><img src="assets/screens/onb-style.png" width="712" height="722" alt="Pick a reminder style and whether to wait for your next pause" loading="lazy"></picture>
-      <picture class="gallery-slide" data-caption="Quiet apps" hidden><source type="image/webp" srcset="assets/screens/onb-exempt.webp"><img src="assets/screens/onb-exempt.png" width="712" height="722" alt="Tick apps where TalkRemind should stay quiet" loading="lazy"></picture>
-      <picture class="gallery-slide" data-caption="How it reminds you" hidden><source type="image/webp" srcset="assets/screens/onb-timing.webp"><img src="assets/screens/onb-timing.png" width="712" height="722" alt="Writing block, nudge and quiet-time timing, with drag handles to adjust each" loading="lazy"></picture>
-      <picture class="gallery-slide" data-caption="Try it" hidden><source type="image/webp" srcset="assets/screens/onb-tryout.webp"><img src="assets/screens/onb-tryout.png" width="712" height="722" alt="A practice text field showing the writing block, nudge and dictated counters live" loading="lazy"></picture>
+      <picture class="gallery-slide is-active" data-caption="Welcome" aria-hidden="false"><source type="image/webp" srcset="assets/screens/onb-welcome.webp"><img src="assets/screens/onb-welcome.png" width="712" height="722" alt="Welcome screen: TalkRemind counts keystrokes, never content"></picture>
+      <picture class="gallery-slide" data-caption="Your dictation app" aria-hidden="true"><source type="image/webp" srcset="assets/screens/onb-dictation.webp"><img src="assets/screens/onb-dictation.png" width="712" height="722" alt="Choose your dictation app, detected automatically, with a 20-second test" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Reminder style" aria-hidden="true"><source type="image/webp" srcset="assets/screens/onb-style.webp"><img src="assets/screens/onb-style.png" width="712" height="722" alt="Pick a reminder style and whether to wait for your next pause" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Quiet apps" aria-hidden="true"><source type="image/webp" srcset="assets/screens/onb-exempt.webp"><img src="assets/screens/onb-exempt.png" width="712" height="722" alt="Tick apps where TalkRemind should stay quiet" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="How it reminds you" aria-hidden="true"><source type="image/webp" srcset="assets/screens/onb-timing.webp"><img src="assets/screens/onb-timing.png" width="712" height="722" alt="Writing block, nudge and quiet-time timing, with drag handles to adjust each" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Try it" aria-hidden="true"><source type="image/webp" srcset="assets/screens/onb-tryout.webp"><img src="assets/screens/onb-tryout.png" width="712" height="722" alt="A practice text field showing the writing block, nudge and dictated counters live" loading="lazy"></picture>
       <button class="gallery-arrow gallery-prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="gallery-arrow gallery-next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
@@ -782,6 +788,9 @@
   });
 
   // Onboarding gallery: dot indicators + prev/next, click or keyboard.
+  // Slides are always in the DOM, stacked via CSS (.gallery-slide.is-active);
+  // switching crossfades the outgoing slide out and slides the incoming one
+  // in from the direction of travel.
   (function () {
     var root = document.querySelector('[data-gallery]');
     if (!root) return;
@@ -792,20 +801,39 @@
     var next = root.querySelector('.gallery-next');
     var index = 0;
 
-    function show(i) {
-      index = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) { s.hidden = n !== index; });
+    function show(i, direction) {
+      var newIndex = (i + slides.length) % slides.length;
+      if (newIndex === index) return;
+      var dir = direction || (newIndex > index ? 1 : -1);
+      var outgoing = slides[index];
+      var incoming = slides[newIndex];
+      index = newIndex;
+
       dots.forEach(function (d, n) { d.classList.toggle('is-active', n === index); });
-      if (caption) caption.textContent = slides[index].dataset.caption;
+      if (caption) caption.textContent = incoming.dataset.caption;
+
+      outgoing.classList.remove('is-active');
+      outgoing.setAttribute('aria-hidden', 'true');
+      incoming.classList.remove('dir-in-next', 'dir-in-prev');
+      incoming.classList.add(dir > 0 ? 'dir-in-next' : 'dir-in-prev');
+      // Force a reflow so the starting transform above is committed before
+      // the next frame removes it — otherwise the browser coalesces both
+      // states and there's nothing to transition from.
+      void incoming.offsetWidth;
+      incoming.classList.add('is-active');
+      incoming.setAttribute('aria-hidden', 'false');
+      requestAnimationFrame(function () {
+        incoming.classList.remove('dir-in-next', 'dir-in-prev');
+      });
     }
 
     dots.forEach(function (dot, i) { dot.addEventListener('click', function () { show(i); }); });
-    if (prev) prev.addEventListener('click', function () { show(index - 1); });
-    if (next) next.addEventListener('click', function () { show(index + 1); });
+    if (prev) prev.addEventListener('click', function () { show(index - 1, -1); });
+    if (next) next.addEventListener('click', function () { show(index + 1, 1); });
     root.setAttribute('tabindex', '0');
     root.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') show(index - 1);
-      if (e.key === 'ArrowRight') show(index + 1);
+      if (e.key === 'ArrowLeft') show(index - 1, -1);
+      if (e.key === 'ArrowRight') show(index + 1, 1);
     });
   })();
 })();
