@@ -152,54 +152,6 @@
   .shot-text h3 { font-size: 24px; font-weight: 700; letter-spacing: -.04em; line-height: 1.15; margin: 8px 0 10px; }
   .shot-text p { font-size: 16px; color: var(--muted); }
 
-  /* ---------- Clickable menu-bar demo (hero) ---------- */
-  .demo-widget { margin: 56px auto 0; display: flex; flex-direction: column; align-items: center; }
-  .menu-bar-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--ink); color: var(--paper); border: none; border-radius: 999px; padding: 8px 16px; font-family: var(--sans); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 28px rgba(26,25,23,.18); transition: transform .12s ease; }
-  .menu-bar-chip:hover { transform: translateY(-1px); }
-  .menu-bar-chip:active { transform: scale(.97); }
-  .menu-bar-chip svg { width: 15px; height: 15px; }
-  .demo-popover {
-    width: 300px; max-width: calc(100vw - 32px); margin-top: 14px; position: relative;
-    background: linear-gradient(rgba(58,57,55,.94), rgba(46,45,43,.94));
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.35); padding: 16px; text-align: left; color: #F2F1EF;
-  }
-  .demo-popover::before {
-    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
-    width: 16px; height: 16px; background: rgba(52,51,49,.94); border-radius: 3px 0 0 0;
-    transform: translateX(-50%) rotate(45deg); border-top: 1px solid rgba(255,255,255,.08); border-left: 1px solid rgba(255,255,255,.08);
-  }
-  .demo-popover[hidden] { display: none; }
-  .dp-header { display: flex; align-items: center; gap: 8px; }
-  .dp-header img { width: 22px; height: 22px; border-radius: 6px; }
-  .dp-title { font-weight: 600; font-size: 14px; color: #fff; }
-  .dp-badge { font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: .05em; background: rgba(255,255,255,.14); color: #fff; border-radius: 999px; padding: 2px 7px; }
-  .dp-spacer { flex: 1; }
-  .dp-icon-btn { width: 26px; height: 26px; border-radius: 50%; border: none; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; }
-  .dp-icon-btn svg { width: 12px; height: 12px; }
-  .dp-donut-card { background: rgba(255,255,255,.06); border-radius: 12px; padding: 18px; margin-top: 12px; text-align: center; }
-  .dp-donut-label { font-size: 12px; color: rgba(242,241,239,.6); margin-bottom: 10px; }
-  .dp-donut { width: 108px; height: 108px; margin: 0 auto; border-radius: 50%; background: conic-gradient(#fff calc(var(--pct) * 1%), rgba(255,255,255,.14) 0); display: flex; align-items: center; justify-content: center; }
-  .dp-donut span { width: 78px; height: 78px; border-radius: 50%; background: #3a3937; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #fff; }
-  .dp-sub { font-size: 11.5px; color: rgba(242,241,239,.55); margin-top: 10px; }
-  .dp-tabs { display: flex; gap: 6px; margin-top: 14px; background: rgba(255,255,255,.06); border-radius: 10px; padding: 3px; }
-  .dp-tab { flex: 1; border: none; background: transparent; border-radius: 8px; padding: 7px 0; font-size: 12.5px; font-weight: 600; color: rgba(242,241,239,.6); cursor: pointer; font-family: var(--sans); }
-  .dp-tab.is-active { background: #fff; color: #1A1917; }
-  .dp-panel[hidden] { display: none; }
-  .dp-chart { width: 100%; height: auto; margin-top: 12px; color: #fff; }
-  .dp-days { display: flex; justify-content: space-between; font-size: 9.5px; color: rgba(242,241,239,.5); margin-top: 2px; padding: 0 2px; }
-  .dp-reminded-note { font-size: 12px; color: rgba(242,241,239,.65); line-height: 1.4; margin-top: 2px; }
-  .dp-chips { display: flex; gap: 6px; margin-top: 10px; }
-  .dp-chip { border: none; background: rgba(255,255,255,.08); color: rgba(242,241,239,.7); font-size: 11.5px; font-weight: 600; font-family: var(--sans); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
-  .dp-chip.is-active { background: #fff; color: #1A1917; }
-  .dp-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 2px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 13px; }
-  .dp-row:last-child { border-bottom: none; }
-  .dp-app { display: flex; align-items: center; gap: 8px; }
-  .dp-app-icon { width: 18px; height: 18px; border-radius: 5px; flex-shrink: 0; }
-  .dp-count { color: rgba(242,241,239,.5); font-variant-numeric: tabular-nums; }
-  .demo-hint { font-size: 13px; color: var(--muted); margin-top: 18px; max-width: 380px; text-align: center; }
-
   /* ---------- Onboarding gallery ---------- */
   .gallery { max-width: 460px; margin: 0 auto; }
   .gallery-viewport { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--white); box-shadow: 0 14px 40px rgba(26,25,23,.10); }
@@ -363,49 +315,6 @@
     <a href="#pricing" class="btn btn-secondary">See pricing</a>
   </div>
   <p class="price-note">Free for 14 days, then <a href="#pricing">€6.99 once</a>.</p>
-  <div class="demo-widget">
-    <button class="menu-bar-chip" id="demoToggle" aria-expanded="false" aria-controls="demoPopover">
-      <svg viewBox="0 0 917 917" fill="currentColor" aria-hidden="true"><rect x="220" y="0" width="110" height="916"/><rect x="428" y="0" width="110" height="916"/><path d="M647 0v541c147 0 266-121 266-271S794 0 647 0z"/><path d="M781 916 648 779V621l265 272v23z"/><path d="M42 0l68 70v158L0 115V0z"/></svg>
-      <span>57%</span>
-    </button>
-    <div class="demo-popover" id="demoPopover" hidden>
-      <div class="dp-header">
-        <img src="assets/app-icon.png" alt="">
-        <span class="dp-title">TalkRemind</span>
-        <span class="dp-badge">DEMO</span>
-        <span class="dp-spacer"></span>
-        <button class="dp-icon-btn" aria-label="Pause reminders"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
-        <button class="dp-icon-btn" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9c.2.6.7 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
-      </div>
-      <div class="dp-donut-card">
-        <div class="dp-donut-label">Dictation Share Today</div>
-        <div class="dp-donut" style="--pct:57"><span>57%</span></div>
-        <div class="dp-sub">426 dictated · 322 typed</div>
-      </div>
-      <div class="dp-tabs">
-        <button class="dp-tab is-active" data-tab="overview" aria-selected="true">Overview</button>
-        <button class="dp-tab" data-tab="reminded" aria-selected="false">Reminded</button>
-      </div>
-      <div class="dp-panel" data-panel="overview">
-        <svg class="dp-chart" viewBox="0 0 280 90" preserveAspectRatio="none">
-          <polyline points="10,32 50,62 90,55 130,58 170,30 210,45 250,40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="dp-days"><span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span></div>
-      </div>
-      <div class="dp-panel" data-panel="reminded" hidden>
-        <p class="dp-reminded-note">How often TalkRemind reminded you to dictate, per app.</p>
-        <div class="dp-chips">
-          <button class="dp-chip" type="button">Today</button>
-          <button class="dp-chip is-active" type="button">7 days</button>
-        </div>
-        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#3B82F6"/><path d="M4 8l8 5 8-5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="7" width="16" height="10" rx="1.5" stroke="#fff" stroke-width="1.6" fill="none"/></svg>Mail</span><span class="dp-count">17×</span></div>
-        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#F4C430"/><rect x="5" y="4" width="14" height="16" rx="1.5" fill="#fff"/><path d="M7 8h10M7 11h10M7 14h6" stroke="#F4C430" stroke-width="1.4" stroke-linecap="round"/></svg>Notes</span><span class="dp-count">13×</span></div>
-        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M12 1a11 11 0 0 1 9.5 5.5H12a5.5 5.5 0 0 0-4.76 2.75L2.6 6.1A11 11 0 0 1 12 1z" fill="#EA4335"/><path d="M2.6 6.1l4.64 8.15A5.5 5.5 0 0 0 12 17.5l-4.76 8.24A11 11 0 0 1 2.6 6.1z" fill="#34A853"/><path d="M12 17.5a5.5 5.5 0 0 0 4.9-3l4.6 7.96A11 11 0 0 1 7.24 25.74z" fill="#4285F4"/><circle cx="12" cy="12" r="4.2" fill="#4285F4"/><circle cx="12" cy="12" r="2.6" fill="#fff"/></svg>Chrome</span><span class="dp-count">8×</span></div>
-        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#000"/><path d="M7 6h2.2l5.6 8.4V6H17v12h-2.1L9.2 9.7V18H7z" fill="#fff"/></svg>Notion</span><span class="dp-count">6×</span></div>
-      </div>
-    </div>
-    <p class="demo-hint">Click the menu-bar icon above — this is a live demo with sample data. The real one lives quietly in your actual menu bar.</p>
-  </div>
 </header>
 
 <section class="ink" id="math">
@@ -596,12 +505,20 @@
       <figure><img class="framed" src="assets/screens/pause-menu.png" width="392" height="282" alt="Pause menu with 30 minutes, 2 hours, until tonight, until tomorrow morning, until further notice" loading="lazy"></figure>
     </div>
     <div class="shot-row reveal">
-      <figure><img class="framed" src="assets/screens/settings-style.png" width="657" height="323" alt="Settings: reminder style cards and timing choice between immediately and at the next pause" loading="lazy"></figure>
+      <figure><img class="framed" src="assets/screens/settings-style-dark.png" width="639" height="185" alt="Settings: four reminder styles, Textfield selected, a hint directly beneath the text cursor" loading="lazy"></figure>
       <div class="shot-text">
         <span class="label">Settings</span>
         <h3>Change your mind any time</h3>
         <p>Style, timing, sensitivity, exempt apps and quiet hours all sit on one scrolling page. Hit preview to see the reminder before you keep it.</p>
       </div>
+    </div>
+    <div class="shot-row reveal">
+      <div class="shot-text">
+        <span class="label">Settings</span>
+        <h3>Quiet on your terms</h3>
+        <p>Set a window — 10 pm to 7 am, say — and no reminder arrives inside it, no matter what you're typing.</p>
+      </div>
+      <figure><img class="framed" src="assets/screens/settings-quiet.png" width="627" height="136" alt="Settings: Quiet Hours toggle with a from/to time window" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -859,46 +776,6 @@
       }, { once: true });
     }
   });
-
-  // Interactive menu-bar demo: click to open, tab between Overview/Reminded.
-  (function () {
-    var toggle = document.getElementById('demoToggle');
-    var popover = document.getElementById('demoPopover');
-    if (!toggle || !popover) return;
-
-    function setOpen(isOpen) {
-      popover.hidden = !isOpen;
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    }
-
-    toggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      setOpen(popover.hidden);
-    });
-    document.addEventListener('click', function (e) {
-      if (!popover.hidden && !popover.contains(e.target) && e.target !== toggle) setOpen(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !popover.hidden) setOpen(false);
-    });
-
-    popover.querySelectorAll('.dp-tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        popover.querySelectorAll('.dp-tab').forEach(function (t) {
-          t.classList.toggle('is-active', t === tab);
-          t.setAttribute('aria-selected', String(t === tab));
-        });
-        popover.querySelectorAll('.dp-panel').forEach(function (p) {
-          p.hidden = p.dataset.panel !== tab.dataset.tab;
-        });
-      });
-    });
-    popover.querySelectorAll('.dp-chip').forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        popover.querySelectorAll('.dp-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-      });
-    });
-  })();
 
   // Onboarding gallery: dot indicators + prev/next, click or keyboard.
   (function () {
