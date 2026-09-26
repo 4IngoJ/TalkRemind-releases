@@ -6,21 +6,24 @@
         <description>Update feed for TalkRemind.</description>
         <language>en</language>
         <item>
-            <title>Version 0.10.0</title>
-            <pubDate>Thu, 24 Sep 2026 14:55:00 +0000</pubDate>
-            <sparkle:version>5</sparkle:version>
-            <sparkle:shortVersionString>0.10.0</sparkle:shortVersionString>
+            <title>Version 0.11.0</title>
+            <pubDate>Sat, 26 Sep 2026 15:04:14 +0000</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.11.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description>
                 <![CDATA[
-                  <h3>0.10.0</h3>
+                  <h3>0.11.0</h3>
                   <ul>
-                    <li>Optional iCloud sync: keeps your statistics and settings in step across your Macs. Off by default — turn it on in Settings › iCloud.</li>
-                    <li>Deleting all data with sync on now clears it on every synced Mac too.</li>
+                    <li>New reminder style "At a pause": waits until you stop typing for a moment, then appears at the cursor, so it never cuts into a sentence.</li>
+                    <li>New onboarding steps: choose the apps where TalkRemind stays quiet (your most used apps first), see how reminders are timed in an interactive diagram, and try it in a practice field with your real reminder.</li>
+                    <li>Settings › Sensitivity: every timing rule is adjustable — words before a reminder, the pause that starts a new writing block, the gap between reminders, limits per hour and per day, and quiet time after dictating.</li>
+                    <li>Reminders show TalkRemind's icon plus your dictation app and its shortcut. Pick your dictation app and record any shortcut in Settings, including remapped ones (e.g. Karabiner-Elements).</li>
+                    <li>No more reminders while you type in TalkRemind's own windows, and a stability fix in keystroke handling.</li>
                   </ul>
                 ]]>
             </description>
-            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.10.0.zip" length="5789359" type="application/octet-stream" sparkle:edSignature="7M5ubkcfYnD5/Zi31fr6OcobO/pckfwzO3xrDE0OcAIBODcgJUiAyG8SY0Vdn/s9dxH0lwApqN86Oct+pyjyAA=="/>
+            <enclosure url="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind-0.11.0.zip" length="6589553" type="application/octet-stream" sparkle:edSignature="WWccbl3dPB+8XAeLbPqqmGL5ufnHmfUBua6QxvZoWKabc2RNxz3/p4kbE8N0hZp1sm/TUr8ihNMwXWD1Lg2EAw=="/>
         </item>
     </channel>
 </rss>
