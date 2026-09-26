@@ -154,7 +154,7 @@
 
   /* ---------- Onboarding gallery ---------- */
   .gallery { max-width: 460px; margin: 0 auto; }
-  .gallery-viewport { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--white); box-shadow: 0 14px 40px rgba(26,25,23,.10); }
+  .gallery-viewport { position: relative; }
   .gallery-slide { display: block; width: 100%; height: auto; }
   .gallery-slide[hidden] { display: none; }
   .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: rgba(250,249,247,.92); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: 0 4px 12px rgba(26,25,23,.12); font-size: 16px; padding: 0; }
@@ -283,7 +283,7 @@
 
 <nav>
   <div class="wrap">
-    <a href="#" class="wordmark"><img src="assets/app-icon.png" alt=""> TalkRemind</a>
+    <a href="#" class="wordmark"><img src="assets/app-icon-small.png" width="28" height="28" alt=""> TalkRemind</a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#tour">Tour</a>
@@ -297,7 +297,7 @@
 </nav>
 
 <header class="hero wrap">
-  <img class="icon" src="assets/app-icon.png" alt="TalkRemind app icon">
+  <img class="icon" src="assets/app-icon-small.png" width="84" height="84" alt="TalkRemind app icon">
   <div class="eyebrow">macOS 14+</div>
   <h1>
     You bought a dictation app.<br>
@@ -309,7 +309,7 @@
       </svg>
     </span>
   </h1>
-  <p class="sub">You wanted to dictate more — you set it up, you meant to use it. TalkRemind catches the moment you default to typing instead, and nudges you back, right when it matters most: AI prompts, Slack, long emails.</p>
+  <p class="sub">You wanted to dictate more. You set it up and meant to use it, then kept typing anyway. TalkRemind catches that moment and nudges you back, right where it costs you the most: AI prompts and long emails.</p>
   <div class="cta-row">
     <a href="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind.dmg" class="btn btn-primary">Download for macOS</a>
     <a href="#pricing" class="btn btn-secondary">See pricing</a>
@@ -349,7 +349,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>It works with the one you already have</h2>
-      <p>TalkRemind doesn't transcribe anything. It shows <em>your</em> dictation app's hotkey in the nudge — seventeen are recognised automatically, the rest you enter once.</p>
+      <p>TalkRemind doesn't transcribe anything. It shows <em>your</em> dictation app's hotkey in the nudge. Seventeen are recognised automatically, the rest you enter once.</p>
     </div>
     <div class="app-grid">
       <div class="app-chip"><img src="assets/apps/wisprflow.png" alt="" loading="lazy">Wispr Flow</div>
@@ -374,7 +374,7 @@
         <span class="chip-label">Your custom app<small>Built your own? Works too.</small></span>
       </div>
     </div>
-    <p class="app-note">Using something else — including a script or app you built yourself? Any dictation tool with a hotkey works. You enter the hotkey once and TalkRemind shows it from then on.</p>
+    <p class="app-note">Wrote your own dictation script? Any tool with a hotkey works — enter it once and TalkRemind shows it from then on.</p>
   </div>
 </section>
 
@@ -382,10 +382,10 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>It catches the habit slipping, not your typing</h2>
-      <p>Dictation apps wait for a hotkey. TalkRemind is the part that remembers the hotkey exists — right as you're about to type past it.</p>
+      <p>Dictation apps wait for a hotkey. TalkRemind remembers it's there, right as you're about to type past it.</p>
     </div>
     <div class="callout">
-      <strong>The clearest case: AI prompts.</strong> Claude, ChatGPT, Cursor's chat sidebar — formatting doesn't matter there, typos don't matter, and that's exactly where typing costs you the most time. If you're typing your prompts, this is built for you.
+      <strong>The clearest case: AI prompts.</strong> In Claude or ChatGPT, formatting and typos don't matter. That's exactly where typing costs you the most time. If your prompts are typed, start there.
     </div>
     <div class="feature-grid">
       <div class="card reveal">
@@ -411,7 +411,7 @@
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
         <h3>Quiet where it should be</h3>
-        <p>Exempt apps like your code editor or password manager, set quiet hours, or pause for 30 minutes up to "until tomorrow morning". After five ignored reminders in one app, TalkRemind offers to leave it alone.</p>
+        <p>Exempt apps like your code editor or password manager, set quiet hours, or pause with one click when you need to. After five ignored reminders in one app, it offers to leave that app alone.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.3-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg></div>
@@ -426,7 +426,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Choose how it interrupts you</h2>
-      <p>Every style is a click away in Settings. Pick when it appears, too: right away, or at your next short pause.</p>
+      <p>Every style is a click away in Settings — pick when it appears, right away or at your next short pause.</p>
     </div>
     <div class="style-grid">
       <div class="style-card reveal">
@@ -477,12 +477,12 @@
   </div>
   <div class="gallery" data-gallery>
     <div class="gallery-viewport">
-      <img class="gallery-slide" data-caption="Welcome" src="assets/screens/onb-welcome.png" width="712" height="722" alt="Welcome screen: TalkRemind counts keystrokes, never content">
-      <img class="gallery-slide" data-caption="Your dictation app" src="assets/screens/onb-dictation.png" width="712" height="722" alt="Choose your dictation app, detected automatically, with a 20-second test" hidden loading="lazy">
-      <img class="gallery-slide" data-caption="Reminder style" src="assets/screens/onb-style.png" width="712" height="722" alt="Pick a reminder style and whether to wait for your next pause" hidden loading="lazy">
-      <img class="gallery-slide" data-caption="Quiet apps" src="assets/screens/onb-exempt.png" width="712" height="722" alt="Tick apps where TalkRemind should stay quiet" hidden loading="lazy">
-      <img class="gallery-slide" data-caption="How it reminds you" src="assets/screens/onb-timing.png" width="712" height="722" alt="Writing block, nudge and quiet-time timing, with drag handles to adjust each" hidden loading="lazy">
-      <img class="gallery-slide" data-caption="Try it" src="assets/screens/onb-tryout.png" width="712" height="722" alt="A practice text field showing the writing block, nudge and dictated counters live" hidden loading="lazy">
+      <picture class="gallery-slide" data-caption="Welcome"><source type="image/webp" srcset="assets/screens/onb-welcome.webp"><img src="assets/screens/onb-welcome.png" width="712" height="722" alt="Welcome screen: TalkRemind counts keystrokes, never content"></picture>
+      <picture class="gallery-slide" data-caption="Your dictation app" hidden><source type="image/webp" srcset="assets/screens/onb-dictation.webp"><img src="assets/screens/onb-dictation.png" width="712" height="722" alt="Choose your dictation app, detected automatically, with a 20-second test" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Reminder style" hidden><source type="image/webp" srcset="assets/screens/onb-style.webp"><img src="assets/screens/onb-style.png" width="712" height="722" alt="Pick a reminder style and whether to wait for your next pause" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Quiet apps" hidden><source type="image/webp" srcset="assets/screens/onb-exempt.webp"><img src="assets/screens/onb-exempt.png" width="712" height="722" alt="Tick apps where TalkRemind should stay quiet" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="How it reminds you" hidden><source type="image/webp" srcset="assets/screens/onb-timing.webp"><img src="assets/screens/onb-timing.png" width="712" height="722" alt="Writing block, nudge and quiet-time timing, with drag handles to adjust each" loading="lazy"></picture>
+      <picture class="gallery-slide" data-caption="Try it" hidden><source type="image/webp" srcset="assets/screens/onb-tryout.webp"><img src="assets/screens/onb-tryout.png" width="712" height="722" alt="A practice text field showing the writing block, nudge and dictated counters live" loading="lazy"></picture>
       <button class="gallery-arrow gallery-prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
       <button class="gallery-arrow gallery-next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
@@ -504,9 +504,9 @@
       <div class="shot-text">
         <span class="label">Menu bar</span>
         <h3>Pause without opening Settings</h3>
-        <p>In a meeting or a focus block? One click pauses reminders for 30 minutes, two hours, until tonight, until tomorrow morning, or until you turn them back on.</p>
+        <p>In a meeting or a focus block? One click pauses reminders for 30 minutes, 2 hours, this evening, tomorrow morning, or indefinitely.</p>
       </div>
-      <figure><img class="framed" src="assets/screens/pause-menu.png" width="392" height="282" alt="Pause menu with 30 minutes, 2 hours, until tonight, until tomorrow morning, until further notice" loading="lazy"></figure>
+      <figure><img src="assets/screens/pause-menu.png" width="441" height="293" alt="Pause menu: 30 Minutes, 2 Hours, Until This Evening, Until Tomorrow Morning, Until Further Notice" loading="lazy"></figure>
     </div>
     <div class="shot-row reveal">
       <figure><img class="framed" src="assets/screens/settings-style-dark.png" width="639" height="185" alt="Settings: four reminder styles, Textfield selected, a hint directly beneath the text cursor" loading="lazy"></figure>
@@ -520,7 +520,7 @@
       <div class="shot-text">
         <span class="label">Settings</span>
         <h3>Quiet on your terms</h3>
-        <p>Set a window — 10 pm to 7 am, say — and no reminder arrives inside it, no matter what you're typing.</p>
+        <p>Set a window (say, 10 pm to 7 am) and no reminder arrives inside it, no matter what you're typing.</p>
       </div>
       <figure><img class="framed" src="assets/screens/settings-quiet.png" width="627" height="136" alt="Settings: Quiet Hours toggle with a from/to time window" loading="lazy"></figure>
     </div>
@@ -553,7 +553,7 @@
         <div class="how-text">
           <span class="how-num">2</span>
           <h3>It notices when dictating would already be faster</h3>
-          <p>Past your chosen threshold, in an app that isn't exempt, outside quiet hours. That's the moment a reminder is worth showing, either right away or at your next pause.</p>
+          <p>Past your chosen threshold, in an app that isn't exempt, outside quiet hours. That's when a reminder is worth showing, either right away or at your next pause.</p>
         </div>
         <div class="how-illus">
           <div class="illus-chips">
@@ -583,19 +583,19 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>The money bit</h2>
-      <p>You already paid real money to be able to dictate. This is the part that makes sure that wasn't wasted.</p>
+      <p>You already paid real money to dictate more. This makes sure that wasn't wasted.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card reveal">
         <div class="tier">Trial</div>
         <div class="amount">Free for 14 days</div>
-        <p>Every nudge style, calibration, and the stats — fully unlocked. No account, no credit card.</p>
+        <p>Every reminder style and the full stats, unlocked. No account, no card.</p>
         <a href="https://github.com/4IngoJ/TalkRemind-releases/releases/latest/download/TalkRemind.dmg" class="btn btn-outline-light">Download the trial</a>
       </div>
       <div class="price-card highlight reveal">
         <div class="tier">License</div>
         <div class="amount">€6.99 once</div>
-        <p>After the trial, nudges stop — but your stats keep recording for free, so you can watch your dictation share the moment the nudges go quiet. Buying turns them back on, for good.</p>
+        <p>After the trial, nudges stop. Your stats keep recording for free, so you can watch your dictation share as the nudges go quiet. Buying turns them back on, for good.</p>
         <a href="#faq" class="btn btn-light">How buying works</a>
       </div>
     </div>
@@ -639,7 +639,7 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary>I already have a dictation app — why do I need this too?</summary>
-        <div class="faq-body-inner">Because owning it isn't the same as using it. Most people who buy a dictation app end up reaching for it a fraction of the time they meant to, then fall back into typing out of habit. TalkRemind is the nudge that closes that gap — it doesn't replace your dictation app, it makes sure you actually open it.</div>
+        <div class="faq-body-inner">Because owning it isn't the same as using it. Most people who buy a dictation app reach for it a fraction of the time they meant to, then fall back into typing out of habit. TalkRemind is the reminder that gets you to actually open it.</div>
       </details>
       <details class="faq-item">
         <summary>Does it read what I'm typing?</summary>
@@ -647,7 +647,7 @@
       </details>
       <details class="faq-item">
         <summary>What happens after the 14-day trial?</summary>
-        <div class="faq-body-inner">The nudges stop. Recording keeps running for free — your dictation share, trend, and time saved stay visible so you can see the effect wear off in your own numbers before deciding to buy.</div>
+        <div class="faq-body-inner">The nudges stop. Recording keeps running for free. Your dictation share and the 7-day trend stay visible, so you can watch the effect fade before deciding to buy.</div>
       </details>
       <details class="faq-item">
         <summary>Which dictation apps does it work with?</summary>
@@ -655,11 +655,11 @@
       </details>
       <details class="faq-item">
         <summary>How much time will this actually save me?</summary>
-        <div class="faq-body-inner">That depends entirely on how much more you end up dictating, which is why the app measures it instead of promising it. The arithmetic is simple: your dictation app's speed advantage applies only to the words you speak. Wispr Flow puts that advantage at 4×, Aqua Voice at 5×; an independent Stanford study measured 2.93×. Move a quarter of your writing from keyboard to voice and you capture a quarter of whichever number turns out to be true for you. The stats screen shows your real share, so you can check the claim against your own week rather than take anyone's word for it.</div>
+        <div class="faq-body-inner">That depends on how much more you end up dictating — the app measures it instead of promising it. The short version is in &ldquo;Your dictation app promised 4×&rdquo; above: the speed-up only applies to what you actually speak. The stats screen shows your real share, so you can check it against your own week.</div>
       </details>
       <details class="faq-item">
         <summary>Can I turn it off for specific apps or times?</summary>
-        <div class="faq-body-inner">Yes. Exempt individual apps permanently, set a quiet-hours window, or pause the whole thing for 30 minutes, 2 hours, until evening, or indefinitely from the menu bar.</div>
+        <div class="faq-body-inner">Yes. Exempt individual apps permanently, set a quiet-hours window, or pause everything for 30 minutes up to indefinitely, right from the menu bar.</div>
       </details>
       <details class="faq-item">
         <summary>Is my data sent anywhere?</summary>
@@ -675,7 +675,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-brand"><img src="assets/app-icon.png" alt=""> TalkRemind <span aria-hidden="true">·</span> <a href="https://didact.digital">by didact.</a></div>
+    <div class="foot-brand"><img src="assets/app-icon-small.png" width="20" height="20" alt=""> TalkRemind <span aria-hidden="true">·</span> <a href="https://didact.digital">by didact.</a></div>
     <div class="foot-links">
       <a href="https://github.com/4IngoJ/TalkRemind-releases/releases">Releases</a>
       <a href="https://github.com/4IngoJ/TalkRemind-releases">Source of this page</a>
