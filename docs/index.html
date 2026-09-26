@@ -15,17 +15,23 @@
 <meta name="twitter:image" content="https://4ingoj.github.io/TalkRemind-releases/assets/app-icon.png">
 <link rel="icon" type="image/png" href="assets/app-icon.png">
 <link rel="apple-touch-icon" href="assets/app-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FAFAF8;
-    --band:  #F0EEE9;
-    --ink:   #141413;
-    --muted: #6B6B68;
-    --line:  #E3E0DA;
+    /* didact brand: monochrome, warm neutral */
+    --paper: #FAF9F7;
+    --band:  #F0EEEA;
+    --stone: #E6E4E0;
+    --ink:   #1A1917;
+    --muted: #5C5A56;
+    --line:  #E6E4E0;
     --white: #FFFFFF;
-    --accent: #2B5AE4;
+    --accent: #1A1917;
     --radius: 16px;
-    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --sans: "Onest", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -37,7 +43,7 @@
     font-family: var(--sans);
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.6;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -45,13 +51,13 @@
   /* ---------- Nav ---------- */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(250,250,248,.85);
+    background: rgba(250,249,247,.85);
     backdrop-filter: saturate(180%) blur(12px);
     -webkit-backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid var(--line);
   }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  .wordmark { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -.01em; text-decoration: none; color: var(--ink); }
+  .wordmark { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.04em; text-decoration: none; color: var(--ink); }
   .wordmark img { width: 28px; height: 28px; border-radius: 7px; }
   .nav-links { display: flex; gap: 28px; align-items: center; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .15s; }
@@ -63,7 +69,7 @@
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform .12s ease, box-shadow .12s ease, background .15s; border: 1px solid transparent; }
   .btn:active { transform: scale(.98); }
   .btn-primary { background: var(--ink); color: var(--paper); }
-  .btn-primary:hover { background: #2a2a28; box-shadow: 0 4px 14px rgba(20,20,19,.18); }
+  .btn-primary:hover { background: #33312e; box-shadow: 0 4px 14px rgba(26,25,23,.18); }
   .btn-secondary { background: var(--white); color: var(--ink); border-color: var(--line); }
   .btn-secondary:hover { border-color: #cfccc4; box-shadow: 0 2px 10px rgba(20,20,19,.07); }
   .btn-light { background: var(--paper); color: var(--ink); }
@@ -74,8 +80,8 @@
   /* ---------- Hero ---------- */
   .hero { padding: 96px 24px 80px; text-align: center; }
   .hero img.icon { display: block; width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 8px 28px rgba(20,20,19,.14); margin: 0 auto 22px; }
-  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; background: var(--white); }
-  h1 { font-size: clamp(36px, 5.6vw, 60px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 700; max-width: 880px; margin: 0 auto 24px; }
+  .eyebrow { display: inline-block; font-family: var(--mono); text-transform: uppercase; font-size: 12px; font-weight: 500; letter-spacing: .07em; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; background: var(--white); }
+  h1 { font-size: clamp(36px, 5.6vw, 60px); line-height: 1.05; letter-spacing: -0.04em; font-weight: 700; max-width: 880px; margin: 0 auto 24px; }
   .hero h1 .punch { display: inline-block; position: relative; }
   .hero h1 .punch-line {
     position: absolute; left: -1.5%; bottom: -.13em; width: 103%; height: .28em;
@@ -98,7 +104,7 @@
   section.band { background: var(--band); }
   section.ink { background: var(--ink); color: var(--paper); }
   .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
-  .section-head h2 { font-size: clamp(28px, 4.4vw, 36px); line-height: 1.15; letter-spacing: -0.015em; font-weight: 600; margin-bottom: 12px; }
+  .section-head h2 { font-size: clamp(28px, 4.4vw, 38px); line-height: 1.1; letter-spacing: -0.04em; font-weight: 700; margin-bottom: 12px; }
   .section-head p { font-size: 18px; color: var(--muted); }
   section.ink .section-head p { color: rgba(250,250,248,.6); }
 
@@ -108,7 +114,7 @@
   @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
   .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: box-shadow .18s ease, transform .18s ease; }
   .card:hover { box-shadow: 0 10px 32px rgba(20,20,19,.08); transform: translateY(-2px); }
-  .card h3 { font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 8px; }
+  .card h3 { font-size: 17px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 8px; }
   .card p { font-size: 15px; color: var(--muted); }
   .card-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--band); color: var(--ink); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .card-icon svg { width: 17px; height: 17px; }
@@ -120,12 +126,12 @@
   .style-card .swatch { height: 84px; border-radius: 10px; background: var(--band); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden; position: relative; }
   .style-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
   .style-card p { font-size: 13.5px; color: var(--muted); }
-  .style-card .rec { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+  .style-card .rec { display: inline-block; margin-top: 8px; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; }
 
   /* Miniature previews of each nudge style */
   .mini-bar { position: absolute; top: 0; left: 0; right: 0; height: 14px; background: rgba(20,20,19,.1); display: flex; align-items: center; justify-content: flex-end; gap: 5px; padding-right: 7px; }
   .mini-bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(20,20,19,.28); }
-  .mini-bar i.on { background: var(--accent); box-shadow: 0 0 0 3px rgba(43,90,228,.22); }
+  .mini-bar i.on { background: var(--ink); box-shadow: 0 0 0 3px rgba(26,25,23,.18); }
   .mini-panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px; font-size: 10px; font-weight: 700; color: var(--ink); box-shadow: 0 4px 12px rgba(20,20,19,.14); }
   .mini-caret { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
   .mini-caret .line { width: 74px; height: 5px; border-radius: 2px; background: rgba(20,20,19,.18); }
@@ -135,11 +141,83 @@
   .mini-dim { position: absolute; inset: 0; background: rgba(20,20,19,.84); display: flex; align-items: center; justify-content: center; }
   .mini-dim span { font-size: 10px; font-weight: 700; color: var(--paper); border: 1px solid rgba(250,250,248,.4); border-radius: 999px; padding: 5px 11px; }
 
+  /* ---------- Screenshots ---------- */
+  .shot-row { display: grid; gap: 24px; grid-template-columns: repeat(2, 1fr); max-width: 960px; margin: 0 auto; align-items: center; }
+  .shot-row + .shot-row { margin-top: 56px; }
+  @media (max-width: 760px) { .shot-row { grid-template-columns: 1fr; } }
+  .shot-row figure { margin: 0; text-align: center; }
+  .shot-row img { max-width: 100%; height: auto; }
+  .shot-row img.framed { border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 14px 40px rgba(26,25,23,.10); background: var(--white); }
+  .shot-row figcaption, .shot-text .label { font-family: var(--mono); text-transform: uppercase; font-size: 11.5px; letter-spacing: .07em; color: var(--muted); margin-top: 14px; }
+  .shot-text h3 { font-size: 24px; font-weight: 700; letter-spacing: -.04em; line-height: 1.15; margin: 8px 0 10px; }
+  .shot-text p { font-size: 16px; color: var(--muted); }
+
+  /* ---------- Clickable menu-bar demo (hero) ---------- */
+  .demo-widget { margin: 56px auto 0; display: flex; flex-direction: column; align-items: center; }
+  .menu-bar-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--ink); color: var(--paper); border: none; border-radius: 999px; padding: 8px 16px; font-family: var(--sans); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 10px 28px rgba(26,25,23,.18); transition: transform .12s ease; }
+  .menu-bar-chip:hover { transform: translateY(-1px); }
+  .menu-bar-chip:active { transform: scale(.97); }
+  .menu-bar-chip svg { width: 15px; height: 15px; }
+  .demo-popover {
+    width: 300px; max-width: calc(100vw - 32px); margin-top: 14px; position: relative;
+    background: linear-gradient(rgba(58,57,55,.94), rgba(46,45,43,.94));
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.35); padding: 16px; text-align: left; color: #F2F1EF;
+  }
+  .demo-popover::before {
+    content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+    width: 16px; height: 16px; background: rgba(52,51,49,.94); border-radius: 3px 0 0 0;
+    transform: translateX(-50%) rotate(45deg); border-top: 1px solid rgba(255,255,255,.08); border-left: 1px solid rgba(255,255,255,.08);
+  }
+  .demo-popover[hidden] { display: none; }
+  .dp-header { display: flex; align-items: center; gap: 8px; }
+  .dp-header img { width: 22px; height: 22px; border-radius: 6px; }
+  .dp-title { font-weight: 600; font-size: 14px; color: #fff; }
+  .dp-badge { font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: .05em; background: rgba(255,255,255,.14); color: #fff; border-radius: 999px; padding: 2px 7px; }
+  .dp-spacer { flex: 1; }
+  .dp-icon-btn { width: 26px; height: 26px; border-radius: 50%; border: none; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; }
+  .dp-icon-btn svg { width: 12px; height: 12px; }
+  .dp-donut-card { background: rgba(255,255,255,.06); border-radius: 12px; padding: 18px; margin-top: 12px; text-align: center; }
+  .dp-donut-label { font-size: 12px; color: rgba(242,241,239,.6); margin-bottom: 10px; }
+  .dp-donut { width: 108px; height: 108px; margin: 0 auto; border-radius: 50%; background: conic-gradient(#fff calc(var(--pct) * 1%), rgba(255,255,255,.14) 0); display: flex; align-items: center; justify-content: center; }
+  .dp-donut span { width: 78px; height: 78px; border-radius: 50%; background: #3a3937; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #fff; }
+  .dp-sub { font-size: 11.5px; color: rgba(242,241,239,.55); margin-top: 10px; }
+  .dp-tabs { display: flex; gap: 6px; margin-top: 14px; background: rgba(255,255,255,.06); border-radius: 10px; padding: 3px; }
+  .dp-tab { flex: 1; border: none; background: transparent; border-radius: 8px; padding: 7px 0; font-size: 12.5px; font-weight: 600; color: rgba(242,241,239,.6); cursor: pointer; font-family: var(--sans); }
+  .dp-tab.is-active { background: #fff; color: #1A1917; }
+  .dp-panel[hidden] { display: none; }
+  .dp-chart { width: 100%; height: auto; margin-top: 12px; color: #fff; }
+  .dp-days { display: flex; justify-content: space-between; font-size: 9.5px; color: rgba(242,241,239,.5); margin-top: 2px; padding: 0 2px; }
+  .dp-reminded-note { font-size: 12px; color: rgba(242,241,239,.65); line-height: 1.4; margin-top: 2px; }
+  .dp-chips { display: flex; gap: 6px; margin-top: 10px; }
+  .dp-chip { border: none; background: rgba(255,255,255,.08); color: rgba(242,241,239,.7); font-size: 11.5px; font-weight: 600; font-family: var(--sans); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .dp-chip.is-active { background: #fff; color: #1A1917; }
+  .dp-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 2px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 13px; }
+  .dp-row:last-child { border-bottom: none; }
+  .dp-app { display: flex; align-items: center; gap: 8px; }
+  .dp-app-icon { width: 18px; height: 18px; border-radius: 5px; flex-shrink: 0; }
+  .dp-count { color: rgba(242,241,239,.5); font-variant-numeric: tabular-nums; }
+  .demo-hint { font-size: 13px; color: var(--muted); margin-top: 18px; max-width: 380px; text-align: center; }
+
+  /* ---------- Onboarding gallery ---------- */
+  .gallery { max-width: 460px; margin: 0 auto; }
+  .gallery-viewport { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--white); box-shadow: 0 14px 40px rgba(26,25,23,.10); }
+  .gallery-slide { display: block; width: 100%; height: auto; }
+  .gallery-slide[hidden] { display: none; }
+  .gallery-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: rgba(250,249,247,.92); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: 0 4px 12px rgba(26,25,23,.12); font-size: 16px; padding: 0; }
+  .gallery-prev { left: 10px; } .gallery-next { right: 10px; }
+  .gallery-arrow svg { width: 16px; height: 16px; }
+  .gallery-caption { text-align: center; font-family: var(--mono); text-transform: uppercase; font-size: 11.5px; letter-spacing: .07em; color: var(--muted); margin-top: 16px; }
+  .gallery-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .gallery-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--stone); border: none; cursor: pointer; padding: 0; transition: width .18s ease, border-radius .18s ease; }
+  .gallery-dot.is-active { background: var(--ink); width: 22px; border-radius: 5px; }
+
   /* ---------- The math (claims) ---------- */
   .claim-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto 40px; }
   @media (max-width: 760px) { .claim-grid { grid-template-columns: 1fr; } }
   .claim { background: rgba(250,250,248,.05); border: 1px solid rgba(250,250,248,.14); border-radius: var(--radius); padding: 26px 24px; text-align: center; }
-  .claim .multiple { font-size: 42px; font-weight: 700; letter-spacing: -.02em; color: #7DA2FF; line-height: 1; margin-bottom: 12px; }
+  .claim .multiple { font-size: 46px; font-weight: 700; letter-spacing: -.04em; color: var(--paper); line-height: 1; margin-bottom: 12px; }
   .claim .who { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
   .claim .what { font-size: 13.5px; color: rgba(250,250,248,.6); }
   .math-punch { max-width: 700px; margin: 0 auto; text-align: center; font-size: 18px; line-height: 1.6; color: rgba(250,250,248,.75); }
@@ -166,7 +244,7 @@
   .how-step { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
   @media (max-width: 760px) { .how-step { grid-template-columns: 1fr; } }
   .how-text { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; justify-content: center; }
-  .how-text .how-num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; margin-bottom: 16px; }
+  .how-text .how-num { font-family: var(--mono); display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 700; margin-bottom: 16px; }
   .how-text h3 { font-size: 16px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 8px; }
   .how-text p { font-size: 14.5px; color: var(--muted); }
   .how-text p strong { color: var(--ink); }
@@ -180,7 +258,7 @@
   .illus-chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .illus-chip { border: 1px solid rgba(250,250,248,.25); border-radius: 999px; padding: 5px 13px; font-size: 11.5px; font-weight: 600; color: rgba(250,250,248,.75); }
   .illus-chip.app { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-  .illus-donut { width: 88px; height: 88px; border-radius: 50%; background: conic-gradient(#7DA2FF 0% 38%, rgba(250,250,248,.14) 38% 100%); display: flex; align-items: center; justify-content: center; }
+  .illus-donut { width: 88px; height: 88px; border-radius: 50%; background: conic-gradient(var(--paper) 0% 38%, rgba(250,250,248,.14) 38% 100%); display: flex; align-items: center; justify-content: center; }
   .illus-donut span { width: 56px; height: 56px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--paper); }
 
   /* ---------- Pricing ---------- */
@@ -188,9 +266,9 @@
   @media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } }
   .price-card { border-radius: var(--radius); padding: 36px 32px; border: 1px solid rgba(250,250,248,.14); background: rgba(250,250,248,.04); }
   .price-card.highlight { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-  .price-card .tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(250,250,248,.5); margin-bottom: 10px; }
+  .price-card .tier { font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .07em; color: rgba(250,250,248,.5); margin-bottom: 10px; }
   .price-card.highlight .tier { color: var(--muted); }
-  .price-card .amount { font-size: 32px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 14px; }
+  .price-card .amount { font-size: 34px; font-weight: 700; letter-spacing: -0.04em; margin-bottom: 14px; }
   .price-card p { font-size: 15px; color: rgba(250,250,248,.65); margin-bottom: 26px; }
   .price-card.highlight p { color: var(--muted); }
   .price-card .note { font-size: 13px; margin-top: -14px; margin-bottom: 26px; color: rgba(250,250,248,.45); }
@@ -207,10 +285,10 @@
   .steps { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); max-width: 960px; margin: 0 auto; }
   @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
   .step { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
-  .step .num { font-size: 15px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 14px; }
+  .step .num { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .07em; color: var(--muted); display: block; margin-bottom: 14px; }
   .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.01em; }
   .step p { font-size: 15px; color: var(--muted); }
-  .step code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; background: var(--band); padding: 2px 6px; border-radius: 6px; }
+  .step code { font-family: var(--mono); font-size: 13px; background: var(--band); padding: 2px 6px; border-radius: 6px; }
   .step a { color: var(--ink); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--line); }
   .step a:hover { border-color: var(--ink); }
   .install-note { max-width: 960px; margin: 24px auto 0; font-size: 14px; color: var(--muted); text-align: center; }
@@ -240,7 +318,7 @@
       transition: opacity .6s cubic-bezier(.16,.8,.3,1), transform .6s cubic-bezier(.16,.8,.3,1);
     }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .feature-grid > .reveal:nth-child(1), .style-grid > .reveal:nth-child(1), .claim-grid > .reveal:nth-child(1), .steps > .reveal:nth-child(1), .how-steps > .reveal:nth-child(1), .pricing-grid > .reveal:nth-child(1) { transition-delay: 0ms; }
+    .feature-grid > .reveal:nth-child(1), .shot-row.reveal, .style-grid > .reveal:nth-child(1), .claim-grid > .reveal:nth-child(1), .steps > .reveal:nth-child(1), .how-steps > .reveal:nth-child(1), .pricing-grid > .reveal:nth-child(1) { transition-delay: 0ms; }
     .feature-grid > .reveal:nth-child(2), .style-grid > .reveal:nth-child(2), .claim-grid > .reveal:nth-child(2), .steps > .reveal:nth-child(2), .how-steps > .reveal:nth-child(2), .pricing-grid > .reveal:nth-child(2) { transition-delay: 80ms; }
     .feature-grid > .reveal:nth-child(3), .style-grid > .reveal:nth-child(3), .claim-grid > .reveal:nth-child(3), .steps > .reveal:nth-child(3), .how-steps > .reveal:nth-child(3) { transition-delay: 160ms; }
     .feature-grid > .reveal:nth-child(4), .style-grid > .reveal:nth-child(4) { transition-delay: 240ms; }
@@ -256,6 +334,7 @@
     <a href="#" class="wordmark"><img src="assets/app-icon.png" alt=""> TalkRemind</a>
     <div class="nav-links">
       <a href="#features">Features</a>
+      <a href="#tour">Tour</a>
       <a href="#works-with">Works with</a>
       <a href="#pricing">Pricing</a>
       <a href="#install">Install</a>
@@ -284,6 +363,49 @@
     <a href="#pricing" class="btn btn-secondary">See pricing</a>
   </div>
   <p class="price-note">Free for 14 days, then <a href="#pricing">€6.99 once</a>.</p>
+  <div class="demo-widget">
+    <button class="menu-bar-chip" id="demoToggle" aria-expanded="false" aria-controls="demoPopover">
+      <svg viewBox="0 0 917 917" fill="currentColor" aria-hidden="true"><rect x="220" y="0" width="110" height="916"/><rect x="428" y="0" width="110" height="916"/><path d="M647 0v541c147 0 266-121 266-271S794 0 647 0z"/><path d="M781 916 648 779V621l265 272v23z"/><path d="M42 0l68 70v158L0 115V0z"/></svg>
+      <span>57%</span>
+    </button>
+    <div class="demo-popover" id="demoPopover" hidden>
+      <div class="dp-header">
+        <img src="assets/app-icon.png" alt="">
+        <span class="dp-title">TalkRemind</span>
+        <span class="dp-badge">DEMO</span>
+        <span class="dp-spacer"></span>
+        <button class="dp-icon-btn" aria-label="Pause reminders"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+        <button class="dp-icon-btn" aria-label="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9c.2.6.7 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+      </div>
+      <div class="dp-donut-card">
+        <div class="dp-donut-label">Dictation Share Today</div>
+        <div class="dp-donut" style="--pct:57"><span>57%</span></div>
+        <div class="dp-sub">426 dictated · 322 typed</div>
+      </div>
+      <div class="dp-tabs">
+        <button class="dp-tab is-active" data-tab="overview" aria-selected="true">Overview</button>
+        <button class="dp-tab" data-tab="reminded" aria-selected="false">Reminded</button>
+      </div>
+      <div class="dp-panel" data-panel="overview">
+        <svg class="dp-chart" viewBox="0 0 280 90" preserveAspectRatio="none">
+          <polyline points="10,32 50,62 90,55 130,58 170,30 210,45 250,40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="dp-days"><span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span></div>
+      </div>
+      <div class="dp-panel" data-panel="reminded" hidden>
+        <p class="dp-reminded-note">How often TalkRemind reminded you to dictate, per app.</p>
+        <div class="dp-chips">
+          <button class="dp-chip" type="button">Today</button>
+          <button class="dp-chip is-active" type="button">7 days</button>
+        </div>
+        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#3B82F6"/><path d="M4 8l8 5 8-5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="7" width="16" height="10" rx="1.5" stroke="#fff" stroke-width="1.6" fill="none"/></svg>Mail</span><span class="dp-count">17×</span></div>
+        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#F4C430"/><rect x="5" y="4" width="14" height="16" rx="1.5" fill="#fff"/><path d="M7 8h10M7 11h10M7 14h6" stroke="#F4C430" stroke-width="1.4" stroke-linecap="round"/></svg>Notes</span><span class="dp-count">13×</span></div>
+        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M12 1a11 11 0 0 1 9.5 5.5H12a5.5 5.5 0 0 0-4.76 2.75L2.6 6.1A11 11 0 0 1 12 1z" fill="#EA4335"/><path d="M2.6 6.1l4.64 8.15A5.5 5.5 0 0 0 12 17.5l-4.76 8.24A11 11 0 0 1 2.6 6.1z" fill="#34A853"/><path d="M12 17.5a5.5 5.5 0 0 0 4.9-3l4.6 7.96A11 11 0 0 1 7.24 25.74z" fill="#4285F4"/><circle cx="12" cy="12" r="4.2" fill="#4285F4"/><circle cx="12" cy="12" r="2.6" fill="#fff"/></svg>Chrome</span><span class="dp-count">8×</span></div>
+        <div class="dp-row"><span class="dp-app"><svg class="dp-app-icon" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#000"/><path d="M7 6h2.2l5.6 8.4V6H17v12h-2.1L9.2 9.7V18H7z" fill="#fff"/></svg>Notion</span><span class="dp-count">6×</span></div>
+      </div>
+    </div>
+    <p class="demo-hint">Click the menu-bar icon above — this is a live demo with sample data. The real one lives quietly in your actual menu bar.</p>
+  </div>
 </header>
 
 <section class="ink" id="math">
@@ -359,33 +481,33 @@
     <div class="feature-grid">
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
-        <h3>Right-moment nudges</h3>
-        <p>Four styles, from a quietly-changing menu-bar icon to a brief on-screen dim. Pick one, test it instantly from the menu, change your mind later.</p>
+        <h3>Four reminder styles</h3>
+        <p>From a quietly changing menu-bar icon to a hint under your text cursor or a brief screen dim. Preview each one before you pick it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg></div>
+        <h3>Waits for your next pause</h3>
+        <p>Optional: the reminder holds back until you stop typing for a moment, so it never cuts into a sentence. Or show it the instant the threshold is hit.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 21v-6M4 11V3M12 21v-9M12 8V3M20 21v-4M20 13V3"/><path d="M1.5 15h5M9.5 8h5M17.5 17h5"/></svg></div>
         <h3>Learns your typing</h3>
-        <p>A 24-hour calibration run reads your actual typing behavior and suggests a starting sensitivity — not a guessed default.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.7 21a2 2 0 0 1-3.4 0"/><path d="M18.6 13A18 18 0 0 1 18 8"/><path d="M6.3 6.3A5.9 5.9 0 0 0 6 8c0 7-3 9-3 9h14"/><path d="M18 8a6 6 0 0 0-9.3-5"/><path d="M2 2l20 20"/></svg></div>
-        <h3>Backs off where it doesn't help</h3>
-        <p>Five unheeded nudges in the same app, and TalkRemind offers to exempt it — instead of nagging somewhere it clearly isn't working.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
-        <h3>Quiet hours &amp; exempt apps</h3>
-        <p>Silence nudges in a time window you set, or in specific apps, always — no exceptions until you change it back.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16" rx="1.3"/><rect x="14" y="4" width="4" height="16" rx="1.3"/></svg></div>
-        <h3>Pause anytime</h3>
-        <p>30 minutes, 2 hours, until this evening, or indefinitely — one click from the menu bar, no settings dive required.</p>
+        <p>A 24-hour calibration reads your actual typing and suggests a starting sensitivity. Four presets, from relaxed to strict, if you'd rather choose.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-4-4L2 19"/><path d="M16 7h6v6"/></svg></div>
-        <h3>The stats prove the habit is forming</h3>
-        <p>Today's dictation share and a 7-day trend, computed from your own measured typing and dictation events — proof the adaptation is real, not just a good intention.</p>
+        <h3>Stats that show the habit forming</h3>
+        <p>Today's dictation share, a 7-day trend, and which apps you get reminded in most. A weekly summary arrives on its own.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
+        <h3>Quiet where it should be</h3>
+        <p>Exempt apps like your code editor or password manager, set quiet hours, or pause for 30 minutes up to "until tomorrow morning". After five ignored reminders in one app, TalkRemind offers to leave it alone.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-1.3-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/></svg></div>
+        <h3>Your Macs, in sync</h3>
+        <p>Optional iCloud sync keeps stats and settings the same on every Mac, through your private iCloud. Only numbers, times and app names travel, never text.</p>
       </div>
     </div>
   </div>
@@ -395,7 +517,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <h2>Choose how it interrupts you</h2>
-      <p>Every style is a click away in Preferences — test it live before you commit.</p>
+      <p>Every style is a click away in Settings. Pick when it appears, too: right away, or at your next short pause.</p>
     </div>
     <div class="style-grid">
       <div class="style-card reveal">
@@ -437,6 +559,53 @@
   </div>
 </section>
 
+<section id="tour">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Set up in two minutes</h2>
+      <p>A short guided setup: pick your dictation app, choose a reminder style, mark the apps where you never dictate. Then try it in a practice field before it goes live.</p>
+    </div>
+  </div>
+  <div class="gallery" data-gallery>
+    <div class="gallery-viewport">
+      <img class="gallery-slide" data-caption="Welcome" src="assets/screens/onb-welcome.png" width="712" height="722" alt="Welcome screen: TalkRemind counts keystrokes, never content">
+      <img class="gallery-slide" data-caption="Your dictation app" src="assets/screens/onb-dictation.png" width="712" height="722" alt="Choose your dictation app, detected automatically, with a 20-second test" hidden loading="lazy">
+      <img class="gallery-slide" data-caption="Reminder style" src="assets/screens/onb-style.png" width="712" height="722" alt="Pick a reminder style and whether to wait for your next pause" hidden loading="lazy">
+      <img class="gallery-slide" data-caption="Quiet apps" src="assets/screens/onb-exempt.png" width="712" height="722" alt="Tick apps where TalkRemind should stay quiet" hidden loading="lazy">
+      <button class="gallery-arrow gallery-prev" aria-label="Previous screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="gallery-arrow gallery-next" aria-label="Next screenshot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    <p class="gallery-caption" data-caption-text>Welcome</p>
+    <div class="gallery-dots" role="tablist" aria-label="Onboarding screenshots">
+      <button class="gallery-dot is-active" data-index="0" aria-label="Slide 1"></button>
+      <button class="gallery-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="gallery-dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="gallery-dot" data-index="3" aria-label="Slide 4"></button>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="shot-row reveal">
+      <div class="shot-text">
+        <span class="label">Menu bar</span>
+        <h3>Pause without opening Settings</h3>
+        <p>In a meeting or a focus block? One click pauses reminders for 30 minutes, two hours, until tonight, until tomorrow morning, or until you turn them back on.</p>
+      </div>
+      <figure><img class="framed" src="assets/screens/pause-menu.png" width="392" height="282" alt="Pause menu with 30 minutes, 2 hours, until tonight, until tomorrow morning, until further notice" loading="lazy"></figure>
+    </div>
+    <div class="shot-row reveal">
+      <figure><img class="framed" src="assets/screens/settings-style.png" width="657" height="323" alt="Settings: reminder style cards and timing choice between immediately and at the next pause" loading="lazy"></figure>
+      <div class="shot-text">
+        <span class="label">Settings</span>
+        <h3>Change your mind any time</h3>
+        <p>Style, timing, sensitivity, exempt apps and quiet hours all sit on one scrolling page. Hit preview to see the reminder before you keep it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head reveal">
@@ -463,7 +632,7 @@
         <div class="how-text">
           <span class="how-num">2</span>
           <h3>It notices when dictating would already be faster</h3>
-          <p>Past your chosen word threshold, in an app that isn't exempt, outside quiet hours — that's the moment a nudge is worth showing.</p>
+          <p>Past your chosen threshold, in an app that isn't exempt, outside quiet hours. That's the moment a reminder is worth showing, either right away or at your next pause.</p>
         </div>
         <div class="how-illus">
           <div class="illus-chips">
@@ -585,7 +754,7 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-brand"><img src="assets/app-icon.png" alt=""> TalkRemind</div>
+    <div class="foot-brand"><img src="assets/app-icon.png" alt=""> TalkRemind <span aria-hidden="true">·</span> <a href="https://didact.digital">by didact.</a></div>
     <div class="foot-links">
       <a href="https://github.com/4IngoJ/TalkRemind-releases/releases">Releases</a>
       <a href="https://github.com/4IngoJ/TalkRemind-releases">Source of this page</a>
@@ -690,6 +859,74 @@
       }, { once: true });
     }
   });
+
+  // Interactive menu-bar demo: click to open, tab between Overview/Reminded.
+  (function () {
+    var toggle = document.getElementById('demoToggle');
+    var popover = document.getElementById('demoPopover');
+    if (!toggle || !popover) return;
+
+    function setOpen(isOpen) {
+      popover.hidden = !isOpen;
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(popover.hidden);
+    });
+    document.addEventListener('click', function (e) {
+      if (!popover.hidden && !popover.contains(e.target) && e.target !== toggle) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !popover.hidden) setOpen(false);
+    });
+
+    popover.querySelectorAll('.dp-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        popover.querySelectorAll('.dp-tab').forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+          t.setAttribute('aria-selected', String(t === tab));
+        });
+        popover.querySelectorAll('.dp-panel').forEach(function (p) {
+          p.hidden = p.dataset.panel !== tab.dataset.tab;
+        });
+      });
+    });
+    popover.querySelectorAll('.dp-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        popover.querySelectorAll('.dp-chip').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+      });
+    });
+  })();
+
+  // Onboarding gallery: dot indicators + prev/next, click or keyboard.
+  (function () {
+    var root = document.querySelector('[data-gallery]');
+    if (!root) return;
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.gallery-slide'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.gallery-dot'));
+    var caption = root.querySelector('[data-caption-text]');
+    var prev = root.querySelector('.gallery-prev');
+    var next = root.querySelector('.gallery-next');
+    var index = 0;
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.hidden = n !== index; });
+      dots.forEach(function (d, n) { d.classList.toggle('is-active', n === index); });
+      if (caption) caption.textContent = slides[index].dataset.caption;
+    }
+
+    dots.forEach(function (dot, i) { dot.addEventListener('click', function () { show(i); }); });
+    if (prev) prev.addEventListener('click', function () { show(index - 1); });
+    if (next) next.addEventListener('click', function () { show(index + 1); });
+    root.setAttribute('tabindex', '0');
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+  })();
 })();
 </script>
 
